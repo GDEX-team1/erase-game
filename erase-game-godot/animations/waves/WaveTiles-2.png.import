@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/crabframe_2.png-f024daf156c3a2b90a2d2d1d037a02ce.stex"
+path="res://.import/WaveTiles-2.png-0088bd22fa449f00f38afb4b3ec983ff.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprite/Crab/crabframe_2.png"
-dest_files=[ "res://.import/crabframe_2.png-f024daf156c3a2b90a2d2d1d037a02ce.stex" ]
+source_file="res://animations/waves/WaveTiles-2.png"
+dest_files=[ "res://.import/WaveTiles-2.png-0088bd22fa449f00f38afb4b3ec983ff.stex" ]
 
 [params]
 

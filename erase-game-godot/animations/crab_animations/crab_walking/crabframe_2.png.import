@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/crabframe_1.png-e2c19e03a4cc9869ed8aee70d84ac049.stex"
+path="res://.import/crabframe_2.png-dbd6e13aa06339fb4e008d85495997d2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprite/Crab/crabframe_1.png"
-dest_files=[ "res://.import/crabframe_1.png-e2c19e03a4cc9869ed8aee70d84ac049.stex" ]
+source_file="res://animations/crab_animations/crab_walking/crabframe_2.png"
+dest_files=[ "res://.import/crabframe_2.png-dbd6e13aa06339fb4e008d85495997d2.stex" ]
 
 [params]
 

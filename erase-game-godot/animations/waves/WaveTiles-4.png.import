@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/crableg2.png-942d11b4ed610001d128f656498635d3.stex"
+path="res://.import/WaveTiles-4.png-9d3fb69e22e468ccf4161af979004f1e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprite/Crab/crableg2.png"
-dest_files=[ "res://.import/crableg2.png-942d11b4ed610001d128f656498635d3.stex" ]
+source_file="res://animations/waves/WaveTiles-4.png"
+dest_files=[ "res://.import/WaveTiles-4.png-9d3fb69e22e468ccf4161af979004f1e.stex" ]
 
 [params]
 
