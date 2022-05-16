@@ -1,23 +1,29 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Animations/crab-animations/crab-walking/crabframe_4.png" type="Texture" id=1]
 [ext_resource path="res://Animations/crab-animations/crab-walking/crabframe_1.png" type="Texture" id=2]
 [ext_resource path="res://Animations/crab-animations/crab-walking/crabframe_3.png" type="Texture" id=3]
 [ext_resource path="res://Animations/crab-animations/crab-walking/crabframe_2.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/mob-scripts/crab.gd" type="Script" id=5]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 1 ) ],
 "loop": true,
 "name": "crab-walk",
-"speed": 5.0
+"speed": 8.5
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 34.2633
-height = 0.0
+radius = 15.986
+height = 94.0851
 
 [node name="crab" type="Area2D"]
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+rotation_speed = 1.0
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
@@ -25,5 +31,5 @@ animation = "crab-walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -2, 3 )
-rotation = 1.52891
+rotation = 1.5708
 shape = SubResource( 2 )
