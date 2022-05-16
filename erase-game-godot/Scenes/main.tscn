@@ -1,3 +1,30 @@
-[gd_scene format=2]
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/SandBG.jpeg" type="Texture" id=2]
+[ext_resource path="res://Scenes/wall.tscn" type="PackedScene" id=3]
 
 [node name="main" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 2977.0
+margin_bottom = 640.0
+rect_scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 2 )
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+margin_top = 254.0
+margin_right = 2977.0
+margin_bottom = 894.0
+rect_scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 2 )
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+margin_top = 509.0
+margin_right = 2977.0
+margin_bottom = 1149.0
+rect_scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 2 )
+
+[node name="Sprite" parent="." instance=ExtResource( 3 )]
+visible = false
+position = Vector2( 13, -58 )
