@@ -29,6 +29,7 @@ func _animate_direction(velocity) -> bool:
 
 	return false
 
+
 func _moving(delta, wall, wall_type):
 	var velocity = Vector2.ZERO
 
@@ -46,8 +47,6 @@ func _moving(delta, wall, wall_type):
 				velocity.y = -1
 
 	$AnimatedSprite.flip_h = _animate_direction(velocity)
-
-	_animate_direction(velocity)
 
 	position += velocity * delta
 
