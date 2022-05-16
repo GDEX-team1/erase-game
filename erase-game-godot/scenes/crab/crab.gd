@@ -14,13 +14,11 @@ func _ready():
 	screen_size = get_viewport_rect().size
 
 
-func _animate_move(is_moving):
+func _animate_move(is_moving) -> bool:
 	if is_moving:
-		anim_sprite = true
-		$AnimatedSprite.play()
-	else:
-		anim_sprite = false
-		$AnimatedSprite.stop()
+		return true
+
+	return false
 
 
 func _animate_direction(velocity) -> bool:
@@ -45,6 +43,8 @@ func _moving(delta, wall, wall_type):
 				velocity.y = 1
 			"d", "dr", "dl":
 				velocity.y = -1
+
+	$AnimatedSprite.playing = _animate_move(velocity.length() > 0)
 
 	$AnimatedSprite.flip_h = _animate_direction(velocity)
 
