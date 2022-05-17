@@ -4,6 +4,8 @@ signal hit
 export var speed = 20
 var anim_sprite = false
 var screen_size
+var wall
+var wall_type
 
 
 func _throw_null_error(error_value):
@@ -28,25 +30,9 @@ func _animate_direction(velocity) -> bool:
 	return false
 
 
-func _moving(delta, wall, wall_type):
-	var velocity = Vector2.ZERO
-
-	if wall != null:
-		match wall_type:
-			null:
-				_throw_null_error("wall_type")
-			"l", "ul", "dl":
-				velocity.x = -1
-			"r", "ur", "dr":
-				velocity.x = 1
-			"u", "ur", "ul":
-				velocity.y = 1
-			"d", "dr", "dl":
-				velocity.y = -1
-
-	$AnimatedSprite.playing = _animate_move(velocity.length() > 0)
-
-	$AnimatedSprite.flip_h = _animate_direction(velocity)
+func _process(delta: float):
+	var velocity = Vector2(20,0)
+	$AnimatedSprite.playing = true
 
 	position += velocity * delta
 
