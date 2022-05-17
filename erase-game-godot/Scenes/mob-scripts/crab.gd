@@ -32,6 +32,8 @@ func _animate_move(is_moving):
 
 
 func get_input():
+	
+	# Temporary turning movement input controls
 	rotation_dir = 0
 	
 	if Input.is_action_pressed("ui_right"):
@@ -41,7 +43,7 @@ func get_input():
 
 
 	
-	# velocity = move_and_slide(velocity)
+	
 func _process(delta):
 	# Crab will move forward on every frame at <speed> pixels/second
 	
@@ -54,9 +56,9 @@ func _process(delta):
 	position += velocity * delta  # Moves the crab in the direction
 	_animate_move(true)
 #	
-	# Making sure the crab doesn't move off screen
-	position.x = clamp(position.x, 0, screen_size.x)
-	position.y = clamp(position.y, 0, screen_size.y)
+	## Making sure the crab doesn't move off screen
+	# position.x = clamp(position.x, 0, screen_size.x)
+	# position.y = clamp(position.y, 0, screen_size.y)
 
 ## Not sure how this chunk of code will work
 # func _moving(delta, wall, wall_type):

@@ -2,24 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-<<<<<<<< HEAD:erase-game-godot/Assets/crab-animations/crab-walking/crabframe_3.png.import
 path="res://.import/crabframe_3.png-ee8da5459706b8702df0186d74d7e58d.stex"
-========
-path="res://.import/crabframe_3.png-4772e69343c2a2769084daf9f4828c9b.stex"
->>>>>>>> main:erase-game-godot/animations/crab_animations/crab_walking/crabframe_3.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-<<<<<<<< HEAD:erase-game-godot/Assets/crab-animations/crab-walking/crabframe_3.png.import
 source_file="res://Assets/crab-animations/crab-walking/crabframe_3.png"
 dest_files=[ "res://.import/crabframe_3.png-ee8da5459706b8702df0186d74d7e58d.stex" ]
-========
-source_file="res://animations/crab_animations/crab_walking/crabframe_3.png"
-dest_files=[ "res://.import/crabframe_3.png-4772e69343c2a2769084daf9f4828c9b.stex" ]
->>>>>>>> main:erase-game-godot/animations/crab_animations/crab_walking/crabframe_3.png.import
 
 [params]
 

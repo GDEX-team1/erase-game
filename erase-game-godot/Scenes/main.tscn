@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Assets/SandTile2.jpeg" type="Texture" id=1]
 
-[node name="TextureRect" type="TextureRect"]
+[node name="Background" type="TextureRect"]
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
