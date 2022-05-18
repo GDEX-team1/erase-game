@@ -1,0 +1,55 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/SandTile2.jpeg" type="Texture" id=1]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Background" type="Node" parent="."]
+
+[node name="SandTile2" type="Sprite" parent="Background"]
+position = Vector2( 481, 100 )
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="SandTile6" type="Sprite" parent="Background"]
+position = Vector2( 254, 320 )
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="SandTile3" type="Sprite" parent="Background"]
+position = Vector2( 1292, 321 )
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="SandTile4" type="Sprite" parent="Background"]
+position = Vector2( 41, 543 )
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 1 )
+flip_h = true
+flip_v = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="SandTile5" type="Sprite" parent="Background"]
+position = Vector2( 1082, 543 )
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 1 )
+flip_h = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}

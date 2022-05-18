@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/rock.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/crab.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/bucket.tscn" type="PackedScene" id=4]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node2D
+
+export(PackedScene) var rock_scene
+
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	randomize()
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+
+
+func _on_crab_hit(delta):
+	var rotation_dir = 180
+	var rotation_speed = 1.5
+	rotation += rotation_dir * rotation_speed * delta
+	$crab.transform.rotated(rotation)
+	#velocity = velocity.normalized() * speed 
+	#velocity = Vector2(speed, 0).rotated(rotation) # Sets the crab's direction
+"
+
+[node name="kei-main" type="Node2D"]
+script = SubResource( 1 )
+rock_scene = ExtResource( 1 )
+
+[node name="crab4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 42, 285 )
+
+[node name="Bucket" parent="." instance=ExtResource( 4 )]
+position = Vector2( 968, 259 )
+
+[node name="rock" parent="." instance=ExtResource( 1 )]
+position = Vector2( 212, 260 )
+
+[node name="rock2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 592, 183 )
+
+[node name="rock3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 691, 408 )
+
+[node name="rock4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 542, 319 )
+
+[node name="rock5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 308, 387 )
+
+[node name="rock6" parent="." instance=ExtResource( 1 )]
+position = Vector2( 349, 216 )
+
+[editable path="crab4"]

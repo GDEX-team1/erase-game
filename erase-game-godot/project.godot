@@ -33,7 +33,7 @@ _global_script_class_icons={
 [application]
 
 config/name="erase-game-godot"
-run/main_scene="res://Scenes/crab.tscn"
+run/main_scene="res://Scenes/main/kei-main.tscn"
 config/icon="res://icon.png"
 
 [display]
@@ -51,6 +51,14 @@ enabled=PoolStringArray( "res://addons/gut/plugin.cfg" )
 
 singletons=[ "res://addons/godot-git-plugin/git_api.gdnlib" ]
 
+[layer_names]
+
+2d_physics/layer_1="Main"
+2d_physics/layer_2="Crab"
+2d_physics/layer_3="Rock"
+
 [physics]
 
 common/enable_pause_aware_picking=true
+2d/physics_engine="GodotPhysics"
+2d/default_gravity=0
