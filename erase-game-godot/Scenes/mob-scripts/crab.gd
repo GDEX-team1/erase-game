@@ -27,25 +27,14 @@ func _animate_move(is_moving):
 func _physics_process(delta):
 	
 
-	var rotation_dir_i = abs(move_and_slide(velocity * 60).angle())
-	var rotation_dir_j = abs(move_and_slide(velocity * 60).angle())
+	var rotation_dir = move_and_slide(velocity * 60).angle()
 		
-	print("1:", rotation_dir_i)
-	move_and_slide(velocity * 60)
+	move_and_slide(velocity * 60).angle()
 	
-	rotation_dir_i = abs(move_and_slide(velocity * 60).angle())
-	print("2:",rotation_dir_i)
+	velocity = Vector2(speed, 0).rotated(rotation_dir) # Crab moves parallel to the obstacle
+	velocity = velocity.normalized() * speed * delta
 
-	# Checks if the travel angle on the current frame is the same as previous
-	# If so, go in a straight line
-	# If not, rotate a bit to visually show a slide
-	if rotation_dir_i == rotation_dir_j:
-		velocity = Vector2(speed, 0).rotated(rotation)
-		velocity = velocity.normalized() * speed * delta
-	else:
-		rotation += rotation_dir_j * rotation_speed * delta
-		## Need to add visual protection where crab rotates more than 180 degree
-
+	
 	_animate_move(true)
 #	
 	## If needed, use this code so the crab doesn't move off screen
