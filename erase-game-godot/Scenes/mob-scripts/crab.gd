@@ -29,7 +29,7 @@ func _physics_process(delta):
 
 	var rotation_dir = move_and_slide(velocity * 60).angle()
 		
-	move_and_slide(velocity * 60).angle()
+	
 	
 	velocity = Vector2(speed, 0).rotated(rotation_dir) # Crab moves parallel to the obstacle
 	velocity = velocity.normalized() * speed * delta

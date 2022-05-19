@@ -39,27 +39,39 @@ script = SubResource( 1 )
 rock_scene = ExtResource( 1 )
 
 [node name="crab4" parent="." instance=ExtResource( 2 )]
-position = Vector2( 42, 285 )
+position = Vector2( -64, 279 )
+speed = 60
 
 [node name="Bucket" parent="." instance=ExtResource( 4 )]
 position = Vector2( 968, 259 )
 
 [node name="rock" parent="." instance=ExtResource( 1 )]
-position = Vector2( 212, 260 )
+position = Vector2( 191, 261 )
 
 [node name="rock2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 592, 183 )
+position = Vector2( 465, 230 )
 
-[node name="rock3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 691, 408 )
+[node name="rock7" parent="." instance=ExtResource( 1 )]
+position = Vector2( 521, 231 )
+
+[node name="rock8" parent="." instance=ExtResource( 1 )]
+position = Vector2( 574, 231 )
+
+[node name="rock9" parent="." instance=ExtResource( 1 )]
+position = Vector2( 621, 231 )
+
+[node name="rock10" parent="." instance=ExtResource( 1 )]
+position = Vector2( 685, 231 )
 
 [node name="rock4" parent="." instance=ExtResource( 1 )]
-position = Vector2( 542, 319 )
+position = Vector2( 241, 422 )
 
 [node name="rock5" parent="." instance=ExtResource( 1 )]
-position = Vector2( 308, 387 )
+position = Vector2( 186, 412 )
+rotation = 0.279253
 
 [node name="rock6" parent="." instance=ExtResource( 1 )]
-position = Vector2( 349, 216 )
+position = Vector2( 302, 416 )
+rotation = -0.464258
 
 [editable path="crab4"]

@@ -15,7 +15,8 @@ animations = [ {
 } ]
 
 [sub_resource type="CapsuleShape2D" id=4]
-height = 79.5797
+radius = 28.6665
+height = 0.0
 
 [node name="crab" type="KinematicBody2D"]
 position = Vector2( -15, -4 )
@@ -43,5 +44,4 @@ animation = "crab-walk"
 light_mask = 2
 position = Vector2( 0, 18 )
 rotation = 1.5708
-scale = Vector2( 1, 0.602532 )
 shape = SubResource( 4 )
