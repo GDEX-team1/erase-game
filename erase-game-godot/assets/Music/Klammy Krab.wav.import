@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Klammy Krab.wav-5fc8ab8ec1cda68728b010249e4b3aad.sample"
+
+[deps]
+
+source_file="res://assets/Music/Klammy Krab.wav"
+dest_files=[ "res://.import/Klammy Krab.wav-5fc8ab8ec1cda68728b010249e4b3aad.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
