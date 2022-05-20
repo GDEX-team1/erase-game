@@ -4,8 +4,6 @@ signal hit
 export var speed = 20
 var anim_sprite = false
 var screen_size
-var wall
-var wall_type
 
 
 func _throw_null_error(error_value):

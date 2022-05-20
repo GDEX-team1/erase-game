@@ -1,19 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://animations/waves/WaveTiles.png" type="Texture" id=1]
+[ext_resource path="res://assets/Wave/WaveTiles1.png" type="Texture" id=1]
 [ext_resource path="res://scenes/wave/wave.gd" type="Script" id=3]
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 123.0
 height = 512.0
 
-[sub_resource type="AtlasTexture" id=3]
-flags = 4
-atlas = ExtResource( 1 )
-region = Rect2( 89.1929, 102, 380.038, 873.378 )
-
 [node name="wave" type="RigidBody2D"]
-scale = Vector2( 0.75, 1 )
+scale = Vector2( 0.25, 0.5 )
 collision_mask = 0
 mode = 3
 gravity_scale = 0.0
@@ -25,4 +20,4 @@ shape = SubResource( 2 )
 [node name="WaveTiles" type="Sprite" parent="."]
 position = Vector2( -6.66667, -1 )
 scale = Vector2( 0.953613, 0.940497 )
-texture = SubResource( 3 )
+texture = ExtResource( 1 )
