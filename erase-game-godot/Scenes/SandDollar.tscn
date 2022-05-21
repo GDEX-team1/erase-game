@@ -40,7 +40,6 @@ __meta__ = {
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 1 )
 animation = "glow"
-frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -52,7 +51,7 @@ position = Vector2( 1, 2 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 3 )
 animation = "PickedUpVFX"
-frame = 1
+frame = 2
 playing = true
 
 [connection signal="body_entered" from="." to="." method="_on_SandDollar_body_entered"]
