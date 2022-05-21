@@ -2,7 +2,6 @@ extends Node
 
 var score
 var screen_size
-export var crab_positions: PoolVector2Array
 
 func game_over():
 	$StartTimer.stop()
@@ -13,7 +12,6 @@ func won():
 
 
 func new_game():
-	$spawner.crab_spawns = crab_positions
 	$spawner.spawn_crab()
 	$StartTimer.start()
 

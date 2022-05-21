@@ -5,11 +5,11 @@
 
 [node name="test_level" type="Node"]
 script = ExtResource( 3 )
-crab_positions = PoolVector2Array( 250, 400, 0, 0 )
 
 [node name="StartTimer" type="Timer" parent="."]
 wait_time = 1.176
 
 [node name="spawner" parent="." instance=ExtResource( 1 )]
+crab_spawns = PoolVector2Array( 250, 400, 0, 0 )
 
 [connection signal="timeout" from="StartTimer" to="." method="_on_StartTimer_timeout"]

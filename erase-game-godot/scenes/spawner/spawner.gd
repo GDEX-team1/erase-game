@@ -1,6 +1,6 @@
 extends Node
 
-var crab_spawns: PoolVector2Array
+export var crab_spawns: PoolVector2Array
 
 func spawn_crab():
 	for pos in crab_spawns:
