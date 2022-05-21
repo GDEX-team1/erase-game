@@ -29,13 +29,13 @@ func _animate_direction(velocity) -> bool:
 
 
 func _process(delta: float):
-	var velocity = Vector2(20,0)
+	var velocity = Vector2(20, 0)
 	$AnimatedSprite.playing = true
 
 	position += velocity * delta
 
 
-func _on_crab_body_entered(body: Node):
+func _on_crab_body_entered(_body: Node):
 	hide()
 	emit_signal("hit")
 	$CollisionShape2D.set_deferred("disabled", true)
