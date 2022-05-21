@@ -13,7 +13,7 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "glow",
 "speed": 2.0
@@ -26,7 +26,7 @@ radius = 11.0
 animations = [ {
 "frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 9 ), ExtResource( 4 ), ExtResource( 7 ), ExtResource( 8 ) ],
 "loop": true,
-"name": "PickedUp",
+"name": "PickedUpVFX",
 "speed": 16.0
 } ]
 
@@ -52,8 +52,8 @@ visible = false
 position = Vector2( 1, 2 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 3 )
-animation = "PickedUp"
-frame = 5
+animation = "PickedUpVFX"
+frame = 2
 playing = true
 
 [node name="pickedUpSfx" type="AudioStreamPlayer2D" parent="."]

@@ -32,7 +32,7 @@ func _on_crab_hit(delta):
 	var rotation_speed = 1.5
 	rotation += rotation_dir * rotation_speed * delta
 	$crab.transform.rotated(rotation)
-	#velocity = velocity.normalized() * speed 
+	#velocity = velocity.normalized() * speed
 	#velocity = Vector2(speed, 0).rotated(rotation) # Sets the crab's direction
 "
 
@@ -43,10 +43,11 @@ rock_scene = ExtResource( 1 )
 [node name="YSort" type="YSort" parent="."]
 
 [node name="crab4" parent="YSort" instance=ExtResource( 2 )]
-position = Vector2( 94, 312 )
+position = Vector2( -41, 310 )
 
 [node name="crab5" parent="YSort" instance=ExtResource( 2 )]
-position = Vector2( 688, 320 )
+position = Vector2( 476, 328 )
+speed = 40
 
 [node name="Bucket" parent="YSort" instance=ExtResource( 4 )]
 position = Vector2( 846, 373 )
@@ -80,11 +81,11 @@ rotation = 0.279253
 position = Vector2( 298, 447 )
 rotation = -0.464258
 
-[node name="Lemon" parent="YSort" instance=ExtResource( 3 )]
-position = Vector2( 617, 293 )
+[node name="SandDollar" parent="." instance=ExtResource( 5 )]
+position = Vector2( 368, 386 )
 
-[node name="SandDollar" parent="YSort" instance=ExtResource( 5 )]
-position = Vector2( 237, 404 )
+[node name="Lemon" parent="." instance=ExtResource( 3 )]
+position = Vector2( 775, 314 )
 
 [editable path="YSort/crab4"]
 [editable path="YSort/crab5"]
