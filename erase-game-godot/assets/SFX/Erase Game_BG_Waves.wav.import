@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Erase Game_BG_Waves.wav-375a0d7671fccb4ce51816cb09d6de87.sample"
+
+[deps]
+
+source_file="res://assets/SFX/Erase Game_BG_Waves.wav"
+dest_files=[ "res://.import/Erase Game_BG_Waves.wav-375a0d7671fccb4ce51816cb09d6de87.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

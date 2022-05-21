@@ -1,14 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Assets/crab-animations/crab-walking/crabframe_4.png" type="Texture" id=1]
-[ext_resource path="res://Assets/crab-animations/crab-walking/crabframe_1.png" type="Texture" id=2]
-[ext_resource path="res://Assets/crab-animations/crab-walking/crabframe_3.png" type="Texture" id=3]
-[ext_resource path="res://Assets/crab-animations/crab-walking/crabframe_2.png" type="Texture" id=4]
+[ext_resource path="res://assets/crab-animations/crab-walking/crabframe_1.png" type="Texture" id=2]
+[ext_resource path="res://assets/crab-animations/crab-walking/crabframe_3.png" type="Texture" id=3]
+[ext_resource path="res://assets/crab-animations/crab-walking/crabframe_4.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/mob-scripts/crab.gd" type="Script" id=5]
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 1 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "crab-walk",
 "speed": 8.5
