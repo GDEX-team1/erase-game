@@ -12,23 +12,16 @@ func won():
 
 
 func new_game():
-	$spawner.spawn_crab()
-	$StartTimer.start()
-
+	$CrabSpawner.start()
+	$WaveSpawner.start()
+	$BucketSpawner.start()
 
 func _ready():
 	randomize()
 	new_game()
 
 
-func _on_StartTimer_timeout():
-	$StartTimer.stop()
-	$spawner.spawn_wave()
-	
 
-
-func _on_WaveTimer_timeout():
-	game_over()
 
 
 func _on_crab_hit():

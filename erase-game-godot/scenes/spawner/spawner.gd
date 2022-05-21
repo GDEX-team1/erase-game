@@ -1,21 +1,46 @@
 extends Node
 
-export var crab_spawns: PoolVector2Array
+# Mass spawn variables
+export var mass_spawn: bool
+export var spawn_base: Vector2
+export var spawn_end: int
+export var spawn_offset: int
+export var direction_y = false
 
-func spawn_crab():
-	for pos in crab_spawns:
-		var crab = load('res://scenes/crab/crab.tscn')
-		var crab_scene = crab.instance()
-		crab_scene.position = pos
-		add_child(crab_scene)
+# Individual spawn variables
+export var spawn_locations: PoolVector2Array
 
-func spawn_wave():
-	var pos = Vector2(0, 800)
-	for pos_x in range(0, 1000, 55):
-		var wave = load("res://scenes/wave/wave.tscn")
-		var wave_scene = wave.instance()
-		pos.x = pos_x
-		wave_scene.position = pos
-		add_child(wave_scene)
+export(PackedScene) var object
 
 
+func start():
+	if mass_spawn:
+		_mass_spawn()
+
+	else:
+		_individual_spawn()
+
+
+func _range_spawn(start, stop):
+	for pos in range(start, stop, spawn_offset):
+		var object_scene = object.instance()
+		object_scene.position = spawn_base
+		if direction_y:
+			object_scene.position.y = pos
+		else:
+			object_scene.position.x = pos
+		add_child(object_scene)
+
+
+func _mass_spawn():
+
+	if direction_y:
+		_range_spawn(spawn_base.y, spawn_end)
+	else:
+		_range_spawn(spawn_base.x, spawn_end)
+
+func _individual_spawn():
+	for pos in spawn_locations:
+		var object_scene = object.instance()
+		object_scene.position = pos
+		add_child(object_scene)
