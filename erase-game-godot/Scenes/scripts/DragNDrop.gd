@@ -15,17 +15,16 @@ func _ready():
 	wallSelected = false
 	maxMeterHP = max_Sand_Meter_Frames * HP_Sand_Meter
 	currentMeterHP = maxMeterHP
-	Area2D.connect("SandDollar_PickedUp",self,pickedUp_SandDollar())
+	$SandDollar.connect("SandDollar_PickedUp",self,"pickedUp_SandDollar")
 	
 	
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+
 func pickedUp_SandDollar():
-	print("Sand Signal Get")
+	
 	currentMeterHP += HP_Sand_Dollar
+	print("HP: ", currentMeterHP,"/",maxMeterHP)
 	
 func _physics_process(delta):
 	if wallSelected:
@@ -53,8 +52,12 @@ func _input(event):
 	## Code used for manually adjusting Sand Meter HP
 	if Input.is_action_just_pressed("ui_up"):
 		currentMeterHP +=1
+		print("HP: ", currentMeterHP,"/",maxMeterHP)
+		
 	if Input.is_action_just_pressed("ui_down"):
 		currentMeterHP -=1
+		print("HP: ", currentMeterHP,"/",maxMeterHP)
+		
 	
 	
 func updateMeterSprite():
