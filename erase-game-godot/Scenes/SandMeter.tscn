@@ -1,21 +1,45 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
+[ext_resource path="res://Scenes/scripts/DragNDrop.gd" type="Script" id=1]
 [ext_resource path="res://Assets/SandMeter/sandmeter.png" type="Texture" id=2]
-[ext_resource path="res://Scenes/scripts/WallDragNDrop.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Wall.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/crab.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/SandDollar.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 99.0
 
-[node name="SandMeter" type="Sprite"]
+[node name="Area2D" type="Area2D"]
+position = Vector2( 351, 222 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+HP_Sand_Meter = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 2, 0 )
+shape = SubResource( 1 )
+
+[node name="SandMeter_Silhouette" type="Sprite" parent="."]
 position = Vector2( 4, 1 )
 texture = ExtResource( 2 )
 hframes = 5
 frame = 4
-script = ExtResource( 3 )
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="SandMeter_Main" type="Sprite" parent="."]
+position = Vector2( 4, 1 )
+texture = ExtResource( 2 )
+hframes = 5
+frame = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 1 )
+[node name="Wall" parent="." instance=ExtResource( 3 )]
+visible = false
 
-[connection signal="input_event" from="Area2D" to="." method="_on_Area2D_input_event"]
+[node name="crab" parent="." instance=ExtResource( 4 )]
+position = Vector2( -211, 255 )
+
+[node name="SandDollar" parent="." instance=ExtResource( 5 )]
+position = Vector2( -6, 250 )
+
+[connection signal="input_event" from="." to="." method="_on_Area2D_input_event"]

@@ -2,6 +2,9 @@ extends Area2D
 
 var pickedUp = false
 
+signal SandDollar_PickedUp
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _process(delta):
@@ -9,7 +12,7 @@ func _process(delta):
 	
 	if pickedUp: 
 		$PickUpVFX.show()
-		$PickUpVFX.play("PickedUp")
+		$PickUpVFX.play("PickedUpVFX")
 		$PickUpSprite.hide()
 	if pickedUp == false:
 		$PickUpVFX.hide()	

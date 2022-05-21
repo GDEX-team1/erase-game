@@ -2,6 +2,8 @@ extends StaticBody2D
 
 var wallFrame : int
 
+func ready():
+	wallFrame = 0
 func _physics_process(delta):
 	#wallFrame = $AnimatedSprite.frame
 	pass
@@ -22,6 +24,8 @@ func _input(event):
 		-1: 
 			wallFrame = 8
 			wallFlip = true
+			wallCollision = -110
+			wallOffset = Vector2(10,-3)
 		
 		0:
 			wallFlip = false

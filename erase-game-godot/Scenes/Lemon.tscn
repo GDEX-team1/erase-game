@@ -26,7 +26,7 @@ radius = 11.0
 animations = [ {
 "frames": [ ExtResource( 11 ), ExtResource( 4 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 6 ) ],
 "loop": true,
-"name": "PickedUp",
+"name": "PickedUpVFX",
 "speed": 16.0
 } ]
 
@@ -37,7 +37,6 @@ script = ExtResource( 3 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 1 )
 animation = "glow"
-frame = 1
 playing = true
 __meta__ = {
 "_edit_group_": true
@@ -51,8 +50,8 @@ visible = false
 position = Vector2( -2, -18 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 3 )
-animation = "PickedUp"
-frame = 4
+animation = "PickedUpVFX"
+frame = 1
 playing = true
 
 [connection signal="body_entered" from="." to="." method="_on_Lemon_body_entered"]
