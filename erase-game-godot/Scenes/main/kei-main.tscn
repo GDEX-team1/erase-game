@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/rock.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/crab.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Lemon.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/bucket.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/SandDollar.tscn" type="PackedScene" id=5]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node2D
@@ -77,6 +79,12 @@ rotation = 0.279253
 [node name="rock6" parent="YSort" instance=ExtResource( 1 )]
 position = Vector2( 298, 447 )
 rotation = -0.464258
+
+[node name="Lemon" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 617, 293 )
+
+[node name="SandDollar" parent="YSort" instance=ExtResource( 5 )]
+position = Vector2( 237, 404 )
 
 [editable path="YSort/crab4"]
 [editable path="YSort/crab5"]

@@ -21,6 +21,7 @@ func _process(delta):
 func _on_Lemon_body_entered(body):
 	pickedUp = true
 	emit_signal("Lemon_PickedUp")
+	$pickedUpSfx.play()
 	print("Lemon picked up: ", pickedUp)
 
 func _on_Lemon_body_exited(body):
@@ -32,6 +33,6 @@ func _on_SandDollar_body_entered(body):
 	pickedUp = true
 	emit_signal("SandDollar_PickedUp")
 	print("SD picked up: ", pickedUp)
-	
+	$pickedUpSfx.play()
 func _on_SandDollar_body_exited(body):
 	pickedUp = false	
