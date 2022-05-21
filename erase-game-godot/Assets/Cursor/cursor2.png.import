@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/SandTile2.jpeg-636480fa40e7d3905449aaa09e353ba8.stex"
+path="res://.import/cursor2.png-cf19fdda296b8b7a31e90306f4b735cc.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/SandTile2.jpeg"
-dest_files=[ "res://.import/SandTile2.jpeg-636480fa40e7d3905449aaa09e353ba8.stex" ]
+source_file="res://Assets/Cursor/cursor2.png"
+dest_files=[ "res://.import/cursor2.png-cf19fdda296b8b7a31e90306f4b735cc.stex" ]
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=1
+flags/repeat=0
 flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
