@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/SandTile2.jpeg-3ee8e746bdab081628e7b55805be0788.stex"
+path="res://.import/sanddissolve_6.png-8b93f66b65839babcce1262af5db33d1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/SandTile2.jpeg"
-dest_files=[ "res://.import/SandTile2.jpeg-3ee8e746bdab081628e7b55805be0788.stex" ]
+source_file="res://Assets/VFX/SandDissolve/sanddissolve_6.png"
+dest_files=[ "res://.import/sanddissolve_6.png-8b93f66b65839babcce1262af5db33d1.stex" ]
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=1
+flags/repeat=0
 flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
