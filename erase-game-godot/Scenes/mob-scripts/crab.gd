@@ -26,7 +26,7 @@ func _animate_move(is_moving):
 	
 func _physics_process(delta):
 	
-	var rotation_dir = move_and_slide(velocity).angle() # Get Crab collision angle
+	var rotation_dir = move_and_slide(velocity/delta).angle() # Get Crab collision angle
 	
 	velocity = Vector2(speed, 0).rotated(rotation_dir) # Crab moves parallel to the obstacle
 	velocity = velocity.normalized() * speed * delta
