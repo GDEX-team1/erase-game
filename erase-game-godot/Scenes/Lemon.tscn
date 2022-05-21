@@ -52,7 +52,6 @@ position = Vector2( -2, -18 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 3 )
 animation = "PickedUpVFX"
-frame = 3
 playing = true
 
 [connection signal="body_entered" from="." to="." method="_on_Lemon_body_entered"]
