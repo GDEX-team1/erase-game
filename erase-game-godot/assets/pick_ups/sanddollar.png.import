@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/lemon.png-898b3ec674925659605a40077e01a3f7.stex"
+path="res://.import/sanddollar.png-3ebca9ba4aa7feb98e7eaaaf10d8b734.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/PickUps/lemon.png"
-dest_files=[ "res://.import/lemon.png-898b3ec674925659605a40077e01a3f7.stex" ]
+source_file="res://assets/pick_ups/sanddollar.png"
+dest_files=[ "res://.import/sanddollar.png-3ebca9ba4aa7feb98e7eaaaf10d8b734.stex" ]
 
 [params]
 

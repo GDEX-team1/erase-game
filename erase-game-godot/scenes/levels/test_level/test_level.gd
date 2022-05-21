@@ -2,7 +2,7 @@ extends Node
 
 var score
 var screen_size
-
+export var crab_positions: PoolVector2Array
 
 func game_over():
 	$StartTimer.stop()
@@ -13,7 +13,8 @@ func won():
 
 
 func new_game():
-	$crab.start($CrabStart.position)
+	$spawner.crab_spawns = crab_positions
+	$spawner.spawn_crab()
 	$StartTimer.start()
 
 
@@ -24,14 +25,8 @@ func _ready():
 
 func _on_StartTimer_timeout():
 	$StartTimer.stop()
-	var pos = Vector2(0, 800)
-	for pos_x in range(0, 1000, 55):
-		randomize()
-		var wave = load("res://scenes/wave/wave.tscn")
-		var wave_scene = wave.instance()
-		pos.x = pos_x
-		wave_scene.position = pos
-		add_child(wave_scene)
+	$spawner.spawn_wave()
+	
 
 
 func _on_WaveTimer_timeout():

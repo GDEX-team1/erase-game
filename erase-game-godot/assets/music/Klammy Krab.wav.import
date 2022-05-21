@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/Klammy Krab.wav-5fc8ab8ec1cda68728b010249e4b3aad.sample"
+path="res://.import/Klammy Krab.wav-69be1461f3a26c074f660f25fc146ddb.sample"
 
 [deps]
 
-source_file="res://assets/Music/Klammy Krab.wav"
-dest_files=[ "res://.import/Klammy Krab.wav-5fc8ab8ec1cda68728b010249e4b3aad.sample" ]
+source_file="res://assets/music/Klammy Krab.wav"
+dest_files=[ "res://.import/Klammy Krab.wav-69be1461f3a26c074f660f25fc146ddb.sample" ]
 
 [params]
 
