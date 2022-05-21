@@ -25,6 +25,7 @@ func pickedUp_SandDollar():
 	
 	currentMeterHP += HP_Sand_Dollar
 	print("HP: ", currentMeterHP,"/",maxMeterHP)
+	$sandMeterRefil.play()
 	
 func _physics_process(delta):
 	if wallSelected:
@@ -43,7 +44,7 @@ func _on_Area2D_input_event(viewport, event, shape_idx):
 	if Input.is_action_just_pressed("ui_leftclick") and not wallSelected:
 		wallSelected=true
 		currentMeterHP -= 1
-		
+		$sandMeterDeplete.play()
 	
 func _input(event):
 	if Input.is_action_just_pressed("ui_rightclick") and wallSelected:
@@ -53,11 +54,11 @@ func _input(event):
 	if Input.is_action_just_pressed("ui_up"):
 		currentMeterHP +=1
 		print("HP: ", currentMeterHP,"/",maxMeterHP)
-		
+		$sandMeterRefil.play()
 	if Input.is_action_just_pressed("ui_down"):
 		currentMeterHP -=1
 		print("HP: ", currentMeterHP,"/",maxMeterHP)
-		
+		$sandMeterDeplete.play()
 	
 	
 func updateMeterSprite():
