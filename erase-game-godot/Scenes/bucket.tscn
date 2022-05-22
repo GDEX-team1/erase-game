@@ -40,5 +40,6 @@ polygon = PoolVector2Array( -38, -128, 237, -105, 236, -110, -61, -136 )
 
 [node name="crabEnteredBucketSfx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
+bus = "SFX"
 
 [connection signal="body_entered" from="." to="." method="_on_Bucket_body_entered"]
