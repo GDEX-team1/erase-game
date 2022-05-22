@@ -5,17 +5,25 @@ var pickedUp = false
 signal SandDollar_PickedUp
 signal Lemon_PickedUp
 
+var delay =0
+var max_delay = 1.5 #time (in seconds) needed for VFX to play & pick up hit box to be disabled
 
-# Called when the node enters the scene tree for the first time.
-func _process(_delta):
+
+func _process(delta):
 	$PickUpSprite.play()
 
 	if pickedUp:
 		$PickUpVFX.show()
 		$PickUpVFX.play("PickedUpVFX")
 		$PickUpSprite.hide()
-	if pickedUp == false:
+		delay += delta
+		
+	print(delay)
+	if delay > max_delay:
 		$PickUpVFX.hide()
+		$CollisionShape2D.disabled = true
+		pickedUp = false
+		
 
 
 func _on_Lemon_body_entered(_body):
@@ -25,16 +33,9 @@ func _on_Lemon_body_entered(_body):
 	print("Lemon picked up: ", pickedUp)
 
 
-func _on_Lemon_body_exited(_body):
-	pickedUp = false
-
-
 func _on_SandDollar_body_entered(_body):
 	pickedUp = true
 	emit_signal("SandDollar_PickedUp")
 	print("SD picked up: ", pickedUp)
 	$pickedUpSfx.play()
 
-
-func _on_SandDollar_body_exited(_body):
-	pickedUp = false

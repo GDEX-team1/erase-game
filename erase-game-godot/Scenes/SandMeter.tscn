@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/scripts/DragNDrop.gd" type="Script" id=1]
 [ext_resource path="res://Assets/SandMeter/sandmeter.png" type="Texture" id=2]
@@ -7,18 +7,15 @@
 [ext_resource path="res://Assets/SFX/Erase Game_Sand_meter_deplete.wav" type="AudioStream" id=6]
 [ext_resource path="res://Assets/SFX/Erase Game_Sand_meter_refil.wav" type="AudioStream" id=7]
 
-[sub_resource type="CircleShape2D" id=1]
-radius = 99.0
-
 [node name="SandMeter" type="Area2D"]
 position = Vector2( 116, 524 )
 script = ExtResource( 1 )
 HP_Sand_Meter = 6
 Wall = ExtResource( 3 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
 position = Vector2( 2, 0 )
-shape = SubResource( 1 )
+polygon = PoolVector2Array( -68, -46, -67, 46, 70, 45, 75, -45, 38, -51, 37, -34, -31, -35, -32, -50 )
 
 [node name="SandMeter_Silhouette" type="Sprite" parent="."]
 position = Vector2( 4, 1 )
