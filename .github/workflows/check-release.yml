@@ -4,7 +4,7 @@ on:
     - cron: '27 23 * * *'
   push:
     branches:
-      - release
+      - master
 jobs:
   fetch:
     name: Fetch Latest Godot Engine Release
