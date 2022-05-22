@@ -18,14 +18,10 @@ func _process(_delta):
 		$PickUpVFX.hide()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
 func _on_Lemon_body_entered(_body):
 	pickedUp = true
 	emit_signal("Lemon_PickedUp")
+	$pickedUpSfx.play()
 	print("Lemon picked up: ", pickedUp)
 
 
@@ -37,6 +33,7 @@ func _on_SandDollar_body_entered(_body):
 	pickedUp = true
 	emit_signal("SandDollar_PickedUp")
 	print("SD picked up: ", pickedUp)
+	$pickedUpSfx.play()
 
 
 func _on_SandDollar_body_exited(_body):

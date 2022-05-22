@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/scripts/DragNDrop.gd" type="Script" id=1]
 [ext_resource path="res://Assets/SandMeter/sandmeter.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Wall.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/SandDollar.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/SFX/Erase Game_Sand_meter_deplete.wav" type="AudioStream" id=6]
+[ext_resource path="res://Assets/SFX/Erase Game_Sand_meter_refil.wav" type="AudioStream" id=7]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 99.0
@@ -32,5 +34,11 @@ frame = 4
 
 [node name="SandDollar" parent="." instance=ExtResource( 5 )]
 position = Vector2( 304, -7 )
+
+[node name="sandMeterDeplete" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+
+[node name="sandMeterRefil" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
 
 [connection signal="input_event" from="." to="." method="_on_Area2D_input_event"]
