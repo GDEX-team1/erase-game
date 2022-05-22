@@ -30,7 +30,7 @@ func _on_SandDollar_PickedUp():
 func _physics_process(delta):
 	if wallSelected == true:  #and Input.is_action_just_pressed("ui_leftclick"):
 		new_wall.set_position(get_local_mouse_position())
-
+		new_wall.wallSelected = wallSelected
 	currentMeterHP = clamp(currentMeterHP, 0, maxMeterHP)
 	updateMeterSprite()
 
@@ -39,10 +39,17 @@ func _on_Area2D_input_event(_viewport, _event, _shape_idx):
 	# Selecting the wall
 	if Input.is_action_just_pressed("ui_leftclick") and not wallSelected:
 		new_wall = Wall.instance()
+		add_child(new_wall)
+		new_wall.get_node("AnimatedSprite").self_modulate = Color.maroon
+		new_wall.get_node("CollisionShape2D").disabled = true
+		
 		wallSelected = true
+		new_wall.wallSelected = true
+		
+		
 		currentMeterHP -= 1
 		$sandMeterDeplete.play()
-		add_child(new_wall)
+		
 		print("Wall Picked Up")
 
 
@@ -50,18 +57,23 @@ func _input(_event):
 	# Cancel wall
 	if Input.is_action_just_pressed("ui_rightclick") and wallSelected:
 		wallSelected = false
-		new_wall.wallDropped = true
+		new_wall.get_node("AnimatedSprite").self_modulate = Color.white
+		new_wall.get_node("CollisionShape2D").disabled = false
 		remove_child(new_wall)
 		currentMeterHP += 1
 		$sandMeterRefil.play()
-
+		print("Wall Cancelled")
+		
 	# Place wall
 	if Input.is_action_just_pressed("ui_leftclick") and wallSelected:
 		wallSelected = false
-		new_wall.wallDropped = true
+		new_wall.get_node("AnimatedSprite").self_modulate = Color.white
+		new_wall.get_node("CollisionShape2D").disabled = false
+		new_wall.wallSelected = false
 		new_wall.set_position(get_local_mouse_position())
+		
 		$sandMeterRefil.play()
-
+		print("Wall Dropped")
 	## Code used for manually adjusting Sand Meter HP
 	if Input.is_action_just_pressed("ui_up"):
 		currentMeterHP += 1
@@ -81,4 +93,4 @@ func updateMeterSprite():
 	$SandMeter_Main.frame = clamp(f - 1, 0, maxMeterHP / HP_Sand_Meter)
 	$SandMeter_Silhouette.frame = clamp(f, 0, maxMeterHP / HP_Sand_Meter)
 	$SandMeter_Silhouette.modulate.a = float((currentMeterHP / HP_Sand_Meter) - f)
-	print("HP: ", currentMeterHP, "/", maxMeterHP)
+	# print("HP: ", currentMeterHP, "/", maxMeterHP)

@@ -1,7 +1,7 @@
 extends StaticBody2D
 
 var wallFrame: int
-var wallDropped = false
+var wallSelected = false
 
 
 func ready():
@@ -26,7 +26,8 @@ func _input(_event):
 		$rotateWallSfx.play()
 
 	# Call the wall's sprite based on the user's input
-	if !wallDropped:
+	if wallSelected:
+		
 		match wallFrame:
 			-1:
 				wallFrame = 8
@@ -85,6 +86,8 @@ func _input(_event):
 				wallOffset = Vector2(0, 0)
 
 		$AnimatedSprite.set_frame(wallFrame)
+		
 		$AnimatedSprite.flip_h = wallFlip
 		$AnimatedSprite.position = wallOffset
 		$CollisionShape2D.rotation_degrees = wallCollision
+	

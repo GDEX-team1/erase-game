@@ -33,7 +33,7 @@ _global_script_class_icons={
 [application]
 
 config/name="erase-game-godot"
-run/main_scene="res://Scenes/test_level/test_level.tscn"
+run/main_scene="res://Scenes/main/kei-main.tscn"
 config/icon="res://icon.png"
 
 [display]
