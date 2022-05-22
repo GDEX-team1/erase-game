@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Erase Game_CrabsCantDrown.wav-e288ce8c430c64d69b8d4d7fcc13a477.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/Erase Game_CrabsCantDrown.wav"
+dest_files=[ "res://.import/Erase Game_CrabsCantDrown.wav-e288ce8c430c64d69b8d4d7fcc13a477.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

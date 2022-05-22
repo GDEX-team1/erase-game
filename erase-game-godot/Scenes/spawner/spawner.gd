@@ -16,9 +16,11 @@ export(PackedScene) var object
 func start():
 	if mass_spawn:
 		_mass_spawn()
+		$spawnSound.play()
 
 	else:
 		_individual_spawn()
+		$spawnSound.play()
 
 
 func _range_spawn(start, stop):
@@ -30,6 +32,7 @@ func _range_spawn(start, stop):
 		else:
 			object_scene.position.x = pos
 		add_child(object_scene)
+		$spawnSound.play()
 
 
 func _mass_spawn():
