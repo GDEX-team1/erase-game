@@ -27,12 +27,8 @@ func _ready():
 
 func pickedUp_SandDollar():
 	currentMeterHP += HP_Sand_Dollar
-<<<<<<< HEAD
 	print("HP: ", currentMeterHP,"/",maxMeterHP)
 	$sandMeterRefil.play()
-=======
-	
->>>>>>> origin/feature/PlaceSandWalls
 	
 func _physics_process(delta):
 	
@@ -51,14 +47,11 @@ func _on_Area2D_input_event(viewport, event, shape_idx):
 		new_wall = Wall.instance()
 		wallSelected = true
 		currentMeterHP -= 1
-<<<<<<< HEAD
 		$sandMeterDeplete.play()
-=======
 		add_child(new_wall)
 		print("Wall Picked Up")
 		
 			
->>>>>>> origin/feature/PlaceSandWalls
 	
 func _input(event):
 	# Cancel wall
@@ -76,21 +69,12 @@ func _input(event):
 	## Code used for manually adjusting Sand Meter HP
 	if Input.is_action_just_pressed("ui_up"):
 		currentMeterHP +=1
-<<<<<<< HEAD
 		print("HP: ", currentMeterHP,"/",maxMeterHP)
 		$sandMeterRefil.play()
 	if Input.is_action_just_pressed("ui_down"):
 		currentMeterHP -=1
 		print("HP: ", currentMeterHP,"/",maxMeterHP)
 		$sandMeterDeplete.play()
-=======
-		
-		
-	if Input.is_action_just_pressed("ui_down"):
-		currentMeterHP -=1
-		
-		
->>>>>>> origin/feature/PlaceSandWalls
 	
 	
 func updateMeterSprite():
