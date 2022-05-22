@@ -1,12 +1,31 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Assets/Music/Klammy Krab.wav" type="AudioStream" id=1]
+[ext_resource path="res://Assets/Buttons/buttons.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/menus/main_menu.gd" type="Script" id=3]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 36, 0, 36, 34 )
 
 [node name="main-menu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 3 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
 autoplay = true
 bus = "Music"
+
+[node name="Play" type="Button" parent="."]
+anchor_right = 0.044
+anchor_bottom = 0.055
+margin_left = 473.0
+margin_top = 600.0
+margin_right = 472.76
+margin_bottom = 599.8
+icon = SubResource( 1 )
+
+[connection signal="pressed" from="Play" to="." method="_on_Play_pressed"]
