@@ -27,7 +27,7 @@ centered = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2( 128, -115 )
-polygon = PoolVector2Array( -70, -7, 111, 14, 140, 96, -83, 109 )
+polygon = PoolVector2Array( -114, -4, 111, 14, 140, 96, -64, 103 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 

@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://BigFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Scenes/scripts/HUD.gd" type="Script" id=2]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource( 2 )
+
+[node name="ScoreLabel" type="Label" parent="."]
+margin_left = 21.0
+margin_top = 15.0
+margin_right = 259.0
+margin_bottom = 75.0
+custom_fonts/font = ExtResource( 1 )
+text = "SCORE"
+
+[node name="RoundTimer" type="Label" parent="."]
+anchor_right = 0.331
+anchor_bottom = 0.273
+margin_left = 625.0
+margin_top = 14.0
+margin_right = 624.24
+margin_bottom = -93.72
+custom_fonts/font = ExtResource( 1 )
+text = "Round Time"
+align = 2
+
+[node name="Timer" type="Timer" parent="RoundTimer"]
+wait_time = 180.0
+one_shot = true
+autostart = true
+
+[node name="PauseButton" type="Button" parent="."]
+margin_right = 12.0
+margin_bottom = 20.0
+
+[connection signal="timeout" from="RoundTimer/Timer" to="." method="_on_Timer_timeout"]
+[connection signal="pressed" from="PauseButton" to="." method="_on_PauseButton_pressed"]
