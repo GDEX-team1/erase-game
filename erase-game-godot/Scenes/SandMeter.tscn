@@ -9,7 +9,7 @@
 radius = 99.0
 
 [node name="SandMeter" type="Area2D"]
-position = Vector2( 160, 231 )
+position = Vector2( 116, 524 )
 script = ExtResource( 1 )
 HP_Sand_Meter = 6
 Wall = ExtResource( 3 )
@@ -31,6 +31,6 @@ hframes = 5
 frame = 4
 
 [node name="SandDollar" parent="." instance=ExtResource( 5 )]
-position = Vector2( 304, 302 )
+position = Vector2( 304, -7 )
 
 [connection signal="input_event" from="." to="." method="_on_Area2D_input_event"]
