@@ -1,0 +1,2 @@
+﻿63272
+/Volumes/Samples_Projects_VIs/Game_Jam/GODOT/Godot_mono.app/Contents/MacOS/Godot
