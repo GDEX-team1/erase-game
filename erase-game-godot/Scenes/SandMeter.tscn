@@ -1,9 +1,12 @@
+<<<<<<< HEAD
 [gd_scene load_steps=9 format=2]
+=======
+[gd_scene load_steps=6 format=2]
+>>>>>>> origin/feature/PlaceSandWalls
 
 [ext_resource path="res://Scenes/scripts/DragNDrop.gd" type="Script" id=1]
 [ext_resource path="res://Assets/SandMeter/sandmeter.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/Wall.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/crab.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/SandDollar.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/SFX/Erase Game_Sand_meter_deplete.wav" type="AudioStream" id=6]
 [ext_resource path="res://Assets/SFX/Erase Game_Sand_meter_refil.wav" type="AudioStream" id=7]
@@ -11,44 +14,30 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 99.0
 
-[node name="Area2D" type="Area2D"]
-position = Vector2( 124, 513 )
+[node name="SandMeter" type="Area2D"]
+position = Vector2( 160, 231 )
 script = ExtResource( 1 )
 HP_Sand_Meter = 6
+Wall = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 2, 0 )
 shape = SubResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="SandMeter_Silhouette" type="Sprite" parent="."]
 position = Vector2( 4, 1 )
 texture = ExtResource( 2 )
 hframes = 5
 frame = 4
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="SandMeter_Main" type="Sprite" parent="."]
 position = Vector2( 4, 1 )
 texture = ExtResource( 2 )
 hframes = 5
 frame = 4
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Wall" parent="." instance=ExtResource( 3 )]
-visible = false
-
-[node name="crab" parent="." instance=ExtResource( 4 )]
-position = Vector2( 243, -151 )
 
 [node name="SandDollar" parent="." instance=ExtResource( 5 )]
-position = Vector2( 447, -156 )
+position = Vector2( 304, 302 )
 
 [node name="sandMeterDeplete" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
