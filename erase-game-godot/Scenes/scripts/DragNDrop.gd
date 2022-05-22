@@ -20,16 +20,18 @@ func _ready():
 	wallSelected = false
 	maxMeterHP = max_Sand_Meter_Frames * HP_Sand_Meter
 	currentMeterHP = maxMeterHP
-	$SandDollar.connect("SandDollar_PickedUp",self,"pickedUp_SandDollar")
 
 
 
 
-func pickedUp_SandDollar():
+
+
+
+func _on_SandDollar_PickedUp():
 	currentMeterHP += HP_Sand_Dollar
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 
 	if wallSelected == true: #and Input.is_action_just_pressed("ui_leftclick"):
 		new_wall.set_position(get_local_mouse_position())
@@ -90,4 +92,9 @@ func updateMeterSprite():
 	$SandMeter_Silhouette.frame = clamp(f , 0 , maxMeterHP / HP_Sand_Meter)
 	$SandMeter_Silhouette.modulate.a = float((currentMeterHP / HP_Sand_Meter) - f)
 	print("HP: ", currentMeterHP,"/",maxMeterHP)
+
+
+
+
+
 
