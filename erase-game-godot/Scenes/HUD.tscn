@@ -10,6 +10,47 @@
 script = ExtResource( 2 )
 roundTime = 5
 
+[node name="PauseButton" type="Button" parent="."]
+margin_left = 890.0
+margin_top = 20.0
+margin_right = 930.0
+margin_bottom = 59.0
+
+[node name="PauseScreen" type="ColorRect" parent="PauseButton"]
+visible = false
+self_modulate = Color( 1, 1, 1, 0.490196 )
+margin_left = -890.0
+margin_top = -20.0
+margin_right = 70.0
+margin_bottom = 620.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="PauseText" type="Label" parent="PauseButton/PauseScreen"]
+anchor_left = -0.00729167
+anchor_top = 0.0123457
+anchor_right = 0.00208333
+anchor_bottom = 0.00308642
+margin_left = 7.0
+margin_top = -8.0
+margin_right = 958.0
+margin_bottom = 638.0
+custom_fonts/font = ExtResource( 1 )
+text = "PAUSED"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Buttons" type="Sprite" parent="PauseButton"]
+position = Vector2( 22, 20 )
+texture = ExtResource( 5 )
+hframes = 4
+vframes = 2
+
 [node name="ScoreLabel" type="Label" parent="."]
 margin_left = 21.0
 margin_top = 15.0
@@ -47,24 +88,10 @@ wait_time = 12.0
 one_shot = true
 autostart = true
 
-[node name="PauseButton" type="Button" parent="."]
-margin_left = 890.0
-margin_top = 20.0
-margin_right = 930.0
-margin_bottom = 59.0
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Buttons" type="Sprite" parent="PauseButton"]
-position = Vector2( 22, 20 )
-texture = ExtResource( 5 )
-hframes = 4
-vframes = 2
-
 [node name="globalTimer" type="Timer" parent="."]
 autostart = true
 
-[connection signal="timeout" from="RoundTimer/Timer" to="." method="_on_Timer_timeout"]
 [connection signal="pressed" from="PauseButton" to="." method="_on_PauseButton_pressed"]
+[connection signal="toggled" from="PauseButton" to="." method="_on_PauseButton_toggled"]
+[connection signal="timeout" from="RoundTimer/Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="globalTimer" to="." method="_on_globalTimer_timeout"]

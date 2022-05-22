@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 signal start_game
-
+signal game_paused(paused)
 
 export (int) var roundTime = 180.0
 export (int) var countDownTime = 5 #Time for "Time's Nearly Up SFX to start
@@ -63,26 +63,45 @@ func game_over():
 		$RoundTimer/timerLowSfx.stop()
 		$RoundTimer/gameOverSfx.play()
 		game_over_has_played = true
+		#Switch Scenes to Game Over Screen
+		
 		timeRemaining = 0
 	
 
 func _on_globalTimer_timeout():
-	emit_signal("_on_globalTimer_timeout")
+	
 	if !game_over_has_played:
 		if !isPaused:
 			timeRemaining -= 1
+			
 	
 
 
 func _on_PauseButton_pressed():
+	print("pause button press")
 	
-	if isPaused==false:
+	if !isPaused:
+		isPaused = true
 		
-		$RoundTimer/timerLowSfx.stop()
+		if timer_has_played:
+			$RoundTimer/timerLowSfx.stop()
+		
+		#$PauseButton/PauseScreen.visible = isPaused
+		#emit_signal("game_paused", isPaused)
+		print("Paused")
+		
 	else:
-		$RoundTimer/timerLowSfx.play()
-		$RoundTimer/timerLowSfx.seek(timerpos)
-	isPaused = !isPaused
+		isPaused = false
+		
+		if timer_has_played:
+			$RoundTimer/timerLowSfx.seek(timerpos)
+			$RoundTimer/timerLowSfx.play()
+		
+		#$PauseButton/PauseScreen.visible = isPaused
+			
+		#emit_signal("game_paused", isPaused)
+		print("unpaused")
+	
 
 
 
@@ -94,3 +113,7 @@ func _on_Lemon_PickedUp():
 	
 func _on_SandDollar_PickedUp():
 	countSandDollar += 1
+
+
+func _on_PauseButton_toggled(button_pressed):
+	pass # Replace with function body.

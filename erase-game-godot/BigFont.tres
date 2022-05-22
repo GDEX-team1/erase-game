@@ -4,5 +4,7 @@
 font_path = "res://addons/gut/fonts/LobsterTwo-BoldItalic.ttf"
 
 [resource]
+resource_local_to_scene = true
 size = 40
+outline_color = Color( 0, 0, 0, 1 )
 font_data = SubResource( 9 )
