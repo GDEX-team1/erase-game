@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/test_level/test_level.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/bucket.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/spawner/spawner.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/wave/wave.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/crab.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/SFX/Erase Game_Time_Over.wav" type="AudioStream" id=6]
 
 [node name="test_level" type="Node"]
 script = ExtResource( 1 )
@@ -26,5 +27,8 @@ object = ExtResource( 5 )
 [node name="BucketSpawner" parent="." instance=ExtResource( 3 )]
 spawn_locations = PoolVector2Array( 500, 500 )
 object = ExtResource( 2 )
+
+[node name="timeOverSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
 
 [connection signal="timeout" from="StartTimer" to="." method="_on_StartTimer_timeout"]

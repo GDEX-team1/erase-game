@@ -5,7 +5,7 @@ var screen_size
 
 func game_over():
 	$StartTimer.stop()
-
+	$timeOverSfx.play()
 
 func won():
 	pass

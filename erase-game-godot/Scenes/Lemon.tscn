@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Assets/PickUps/lemon.png" type="Texture" id=1]
 [ext_resource path="res://Assets/PickUps/lemon2.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Assets/VFX/SandDissolve/sanddissolve_5.png" type="Texture" id=7]
 [ext_resource path="res://Assets/VFX/SandDissolve/sanddissolve_4.png" type="Texture" id=8]
 [ext_resource path="res://Assets/VFX/SandDissolve/sanddissolve_3.png" type="Texture" id=9]
+[ext_resource path="res://Assets/SFX/Erase Game_Lemon_powerup.wav" type="AudioStream" id=10]
 [ext_resource path="res://Assets/VFX/SandDissolve/sanddissolve_1.png" type="Texture" id=11]
 
 [sub_resource type="SpriteFrames" id=1]
@@ -52,7 +53,12 @@ position = Vector2( -2, -18 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 3 )
 animation = "PickedUpVFX"
+frame = 2
 playing = true
+
+[node name="pickedUpSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+bus = "SFX"
 
 [connection signal="body_entered" from="." to="." method="_on_Lemon_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_Lemon_body_exited"]
