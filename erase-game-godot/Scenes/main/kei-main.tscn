@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/rock.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/crab.tscn" type="PackedScene" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://Scenes/bucket.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/SandDollar.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/SandMeter.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Music/Klammy Krab.wav" type="AudioStream" id=7]
+[ext_resource path="res://Assets/SFX/Erase Game_BG_Waves.wav" type="AudioStream" id=8]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node2D
@@ -93,6 +95,16 @@ position = Vector2( 542, 308 )
 
 [node name="SandMeter" parent="." instance=ExtResource( 6 )]
 position = Vector2( 89, 576 )
+
+[node name="musicTheme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -0.619
+autoplay = true
+bus = "Music"
+
+[node name="backgroundSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+autoplay = true
 
 [editable path="YSort/crab4"]
 [editable path="YSort/crab5"]

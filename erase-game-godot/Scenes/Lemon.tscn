@@ -38,7 +38,7 @@ script = ExtResource( 3 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 1 )
 animation = "glow"
-frame = 3
+frame = 1
 playing = true
 __meta__ = {
 "_edit_group_": true
@@ -53,10 +53,12 @@ position = Vector2( -2, -18 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 3 )
 animation = "PickedUpVFX"
+frame = 2
 playing = true
 
 [node name="pickedUpSfx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
+bus = "SFX"
 
 [connection signal="body_entered" from="." to="." method="_on_Lemon_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_Lemon_body_exited"]

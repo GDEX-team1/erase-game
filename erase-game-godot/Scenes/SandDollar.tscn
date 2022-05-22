@@ -41,7 +41,6 @@ __meta__ = {
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 1 )
 animation = "glow"
-frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -58,6 +57,7 @@ playing = true
 
 [node name="pickedUpSfx" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 10 )
+bus = "SFX"
 
 [connection signal="body_entered" from="." to="." method="_on_SandDollar_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_SandDollar_body_exited"]
