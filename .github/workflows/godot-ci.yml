@@ -7,6 +7,7 @@ on:
 env:
   GODOT_VERSION: 3.3.4
   EXPORT_NAME: erase-game-godot
+  ITCHIO_NAME: intern/clammy-crab
 
 jobs:
   export-windows:
@@ -83,3 +84,16 @@ jobs:
         with:
           name: mac
           path: build/mac
+
+  itch:
+  stage: deploy
+  dependencies:
+    - export-windows
+    - export-linux
+    - export-mac
+  script:
+    - butler push build/linux $ITCHIO_NAME:linux-stable
+    - butler push build/macosx $ITCHIO_NAME:macosx-stable
+    - butler push build/windows $ITCHIO_NAME:windows-stable
+  only:
+   - release
