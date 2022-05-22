@@ -1,0 +1,41 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Assets/Wave/WaveTiles3.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Wave/WaveTiles4.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/wave/wave.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Wave/WaveTiles1.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Wave/WaveTiles5.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Wave/WaveTiles2.png" type="Texture" id=6]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 123.0
+height = 512.0
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 6 ), ExtResource( 2 ), ExtResource( 1 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "wave_1",
+"speed": 0.5
+} ]
+
+[node name="wave" type="RigidBody2D"]
+scale = Vector2( 0.25, 0.5 )
+collision_mask = 0
+mode = 3
+gravity_scale = 0.0
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.95, 1.62 )
+frames = SubResource( 3 )
+animation = "wave_1"
+frame = 2
+playing = true
+
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

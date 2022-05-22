@@ -32,7 +32,7 @@ func _on_crab_hit(delta):
 	var rotation_speed = 1.5
 	rotation += rotation_dir * rotation_speed * delta
 	$crab.transform.rotated(rotation)
-	#velocity = velocity.normalized() * speed 
+	#velocity = velocity.normalized() * speed
 	#velocity = Vector2(speed, 0).rotated(rotation) # Sets the crab's direction
 "
 
