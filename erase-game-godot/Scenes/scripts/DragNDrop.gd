@@ -18,36 +18,28 @@ func _ready():
 	wallSelected = false
 	maxMeterHP = max_Sand_Meter_Frames * HP_Sand_Meter
 	currentMeterHP = maxMeterHP
-	
-	currentMeterHP = 0
-	
-	#$SandDollar.connect("SandDollar_PickedUp", self, "pickedUp_SandDollar")
+	var _rc = SignalBus.connect("SandDollar_PickedUp", self, "_on_SandDollar_PickedUp")
 
-	
-		
+
+
+
 
 
 
 func _on_SandDollar_PickedUp():
 	currentMeterHP += HP_Sand_Dollar
-	print("HP: ", currentMeterHP, "/", maxMeterHP)
+	print("hp plus")
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if wallSelected == true:  #and Input.is_action_just_pressed("ui_leftclick"):
 		new_wall.set_position(get_local_mouse_position())
 		new_wall.wallSelected = wallSelected
 	currentMeterHP = clamp(currentMeterHP, 0, maxMeterHP)
 	updateMeterSprite()
-	
-	initialize_timing += delta
-	
-	if initialize_timing >= 1:
-		var nodeSandDollar = get_node("/root/kei-main/YSort/spawnerSandDollar/SandDollar")
-		nodeSandDollar.connect("SandDollar_PickedUp", self, "_on_SandDollar_PickedUp")
-		
-	
-	
+
+
+
 
 func _on_Area2D_input_event(_viewport, _event, _shape_idx):
 	# Selecting the wall
@@ -56,14 +48,14 @@ func _on_Area2D_input_event(_viewport, _event, _shape_idx):
 		add_child(new_wall)
 		new_wall.get_node("AnimatedSprite").self_modulate = Color.maroon
 		new_wall.get_node("CollisionShape2D").disabled = true
-		
+
 		wallSelected = true
 		new_wall.wallSelected = true
-		
-		
+
+
 		currentMeterHP -= 1
 		$sandMeterDeplete.play()
-		
+
 		print("Wall Picked Up")
 
 
@@ -77,7 +69,7 @@ func _input(_event):
 		currentMeterHP += 1
 		$sandMeterRefil.play()
 		print("Wall Cancelled")
-		
+
 	# Place wall
 	if Input.is_action_just_pressed("ui_leftclick") and wallSelected:
 		wallSelected = false
@@ -85,7 +77,7 @@ func _input(_event):
 		new_wall.get_node("CollisionShape2D").disabled = false
 		new_wall.wallSelected = false
 		new_wall.set_position(get_local_mouse_position())
-		
+
 		$sandMeterRefil.play()
 		print("Wall Dropped")
 	## Code used for manually adjusting Sand Meter HP
@@ -103,7 +95,7 @@ func updateMeterSprite():
 	# Using a variable to make the math/code slightly easier to understand
 	var f = floor(currentMeterHP / HP_Sand_Meter)
 
-	#Changing the frames of the sprite based on the current HP of the Sand Meter
+	# Changing the frames of the sprite based on the current HP of the Sand Meter
 	# SandMeter_Main will always be 1 frame below of the silhouette
 	# SandMeter_Silhouette HP is the remainder of (CurrentHP / # HP per frames of the sand wall)
 	# The remainer is used as a % to change the opacity of SM_Silhouette

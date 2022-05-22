@@ -52,11 +52,7 @@ func _process(delta):
 	if timeRemaining < 0 + delta:
 		emit_signal("game_over")
 		game_over()
-		
-	var nodeSandDollar = get_node("/root/kei-main/YSort/spawnerSandDollar")
-	self.connect("SandDollar_PickedUp", nodeSandDollar, "on_SandDollar_PickedUp")
-		
-		
+				
 # Game Over function
 func game_over():
 	if !game_over_has_played:
