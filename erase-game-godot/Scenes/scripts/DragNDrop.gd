@@ -21,7 +21,7 @@ func _ready():
 	maxMeterHP = max_Sand_Meter_Frames * HP_Sand_Meter
 	currentMeterHP = maxMeterHP
 	$SandDollar.connect("SandDollar_PickedUp",self,"pickedUp_SandDollar")
-	new_wall = Wall.instance()
+	
 
 
 
@@ -48,6 +48,7 @@ func _on_Area2D_input_event(viewport, event, shape_idx):
 	
 	# Selecting the wall
 	if Input.is_action_just_pressed("ui_leftclick") and not wallSelected:
+		new_wall = Wall.instance()
 		wallSelected = true
 		currentMeterHP -= 1
 <<<<<<< HEAD
