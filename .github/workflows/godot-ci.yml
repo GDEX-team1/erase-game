@@ -3,7 +3,9 @@ on:
   push:
     branches:
       - "release"
-
+stages:
+  - export
+  - deploy
 env:
   GODOT_VERSION: 3.3.4
   EXPORT_NAME: erase-game-godot
@@ -11,6 +13,7 @@ env:
 
 jobs:
   export-windows:
+    stage: export
     name: Windows Export
     runs-on: ubuntu-20.04
     container:
@@ -36,6 +39,7 @@ jobs:
           path: build/windows
 
   export-linux:
+    stage: export
     name: Linux Export
     runs-on: ubuntu-20.04
     container:
@@ -61,6 +65,7 @@ jobs:
           path: build/linux
 
   export-mac:
+    stage: export
     name: Mac Export
     runs-on: ubuntu-20.04
     container:
@@ -85,3 +90,23 @@ jobs:
           name: mac
           path: build/mac
 
+  itchio:linux:
+    stage: deploy
+    script:
+      - butler push ./build/linux $ITCHIO_USERNAME/$ITCHIO_GAME:linux
+    dependencies:
+      - linux
+
+  itchio:windows:
+    stage: deploy
+    script:
+      - butler push ./build/windows $ITCHIO_USERNAME/$ITCHIO_GAME:windows
+    dependencies:
+      - windows
+
+  itchio:macosx:
+    stage: deploy
+    script:
+      - butler push ./build/mac $ITCHIO_USERNAME/$ITCHIO_GAME:mac
+    dependencies:
+      - mac
