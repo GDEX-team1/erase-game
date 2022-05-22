@@ -85,15 +85,3 @@ jobs:
           name: mac
           path: build/mac
 
-  itch:
-    stage: deploy
-    dependencies:
-      - export-windows
-      - export-linux
-      - export-mac
-    script:
-      - butler push build/linux $ITCHIO_NAME:linux-stable
-      - butler push build/macosx $ITCHIO_NAME:macosx-stable
-      - butler push build/windows $ITCHIO_NAME:windows-stable
-    only:
-    - release
