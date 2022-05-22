@@ -31,9 +31,6 @@ func _ready():
 	
 	timeRemaining = roundTime
 	
-
-	print("export var: ",roundTime, ", getTimer:", timeRemaining)
-
 func _process(delta):
 		
 	$RoundTimer.set_text(str(timeRemaining))
@@ -49,14 +46,15 @@ func _process(delta):
 			timer_has_played = true
 			$RoundTimer.modulate = Color.brown
 		timerpos = $RoundTimer/timerLowSfx.get_playback_position( )
-		print(delta)
+	
 		
 	# Insert "Game Over" display
 	if timeRemaining < 0 + delta:
 		emit_signal("game_over")
 		game_over()
 		
-		
+	var nodeSandDollar = get_node("/root/kei-main/YSort/spawnerSandDollar")
+	self.connect("SandDollar_PickedUp", nodeSandDollar, "on_SandDollar_PickedUp")
 		
 		
 # Game Over function
@@ -82,7 +80,6 @@ func _on_PauseButton_pressed():
 		
 		$RoundTimer/timerLowSfx.stop()
 	else:
-		print("Paused: ", timerpos)
 		$RoundTimer/timerLowSfx.play()
 		$RoundTimer/timerLowSfx.seek(timerpos)
 	isPaused = !isPaused
@@ -92,8 +89,8 @@ func _on_PauseButton_pressed():
 func _on_Bucket_Crab_entered_bucket():
 	countCrab += 1
 
-func _on_SandDollar2_Lemon_PickedUp():
+func _on_Lemon_PickedUp():
 	countLemon += 1
-
-func _on_SandDollar2_SandDollar_PickedUp():
+	
+func _on_SandDollar_PickedUp():
 	countSandDollar += 1

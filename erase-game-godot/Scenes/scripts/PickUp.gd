@@ -18,7 +18,7 @@ func _process(delta):
 		$PickUpSprite.hide()
 		delay += delta
 		
-	print(delay)
+
 	if delay > max_delay:
 		$PickUpVFX.hide()
 		$CollisionShape2D.disabled = true

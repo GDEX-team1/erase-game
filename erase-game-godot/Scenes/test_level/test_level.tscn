@@ -4,7 +4,7 @@
 [ext_resource path="res://Scenes/bucket.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/spawner/spawner.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/wave/wave.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/crab.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/SandDollar.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/SFX/Erase Game_Time_Over.wav" type="AudioStream" id=6]
 
 [node name="test_level" type="Node"]
@@ -15,12 +15,14 @@ wait_time = 1.176
 
 [node name="WaveSpawner" parent="." instance=ExtResource( 3 )]
 mass_spawn = true
-spawn_base = Vector2( 0, 900 )
-spawn_end = 1000
 spawn_offset = 55
 object = ExtResource( 4 )
 
 [node name="CrabSpawner" parent="." instance=ExtResource( 3 )]
+mass_spawn = true
+spawn_base = Vector2( 200, 200 )
+spawn_end = 250
+spawn_offset = 500
 spawn_locations = PoolVector2Array( 450, 200, 0, 0 )
 object = ExtResource( 5 )
 
@@ -32,3 +34,7 @@ object = ExtResource( 2 )
 stream = ExtResource( 6 )
 
 [connection signal="timeout" from="StartTimer" to="." method="_on_StartTimer_timeout"]
+
+[editable path="WaveSpawner"]
+[editable path="CrabSpawner"]
+[editable path="BucketSpawner"]

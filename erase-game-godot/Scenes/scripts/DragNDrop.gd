@@ -10,6 +10,7 @@ var currentMeterHP
 var maxMeterHP
 var wallSelected
 var new_wall
+var initialize_timing = 0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -17,14 +18,19 @@ func _ready():
 	wallSelected = false
 	maxMeterHP = max_Sand_Meter_Frames * HP_Sand_Meter
 	currentMeterHP = maxMeterHP
-	$SandDollar.connect("SandDollar_PickedUp", self, "pickedUp_SandDollar")
+	
+	currentMeterHP = 0
+	
+	#$SandDollar.connect("SandDollar_PickedUp", self, "pickedUp_SandDollar")
 
-
+	
+		
 
 
 
 func _on_SandDollar_PickedUp():
 	currentMeterHP += HP_Sand_Dollar
+	print("HP: ", currentMeterHP, "/", maxMeterHP)
 
 
 func _physics_process(delta):
@@ -33,7 +39,15 @@ func _physics_process(delta):
 		new_wall.wallSelected = wallSelected
 	currentMeterHP = clamp(currentMeterHP, 0, maxMeterHP)
 	updateMeterSprite()
-
+	
+	initialize_timing += delta
+	
+	if initialize_timing >= 1:
+		var nodeSandDollar = get_node("/root/kei-main/YSort/spawnerSandDollar/SandDollar")
+		nodeSandDollar.connect("SandDollar_PickedUp", self, "_on_SandDollar_PickedUp")
+		
+	
+	
 
 func _on_Area2D_input_event(_viewport, _event, _shape_idx):
 	# Selecting the wall
@@ -77,9 +91,12 @@ func _input(_event):
 	## Code used for manually adjusting Sand Meter HP
 	if Input.is_action_just_pressed("ui_up"):
 		currentMeterHP += 1
+		print("HP: ", currentMeterHP, "/", maxMeterHP)
 
 	if Input.is_action_just_pressed("ui_down"):
 		currentMeterHP -= 1
+		print("HP: ", currentMeterHP, "/", maxMeterHP)
+
 
 
 func updateMeterSprite():
