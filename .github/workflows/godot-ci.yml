@@ -8,6 +8,8 @@ jobs:
   export_game:
     runs-on: ubuntu-latest
     name: Export Game Job
+    with:
+      ACTIONS_ALLOW_UNSECURE_COMMANDS: true
 
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
