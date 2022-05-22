@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://BigFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Scenes/scripts/HUD.gd" type="Script" id=2]
+[ext_resource path="res://Assets/SFX/Erase Game_Low_on_time.wav" type="AudioStream" id=3]
+[ext_resource path="res://Assets/SFX/Erase Game_Time_Over.wav" type="AudioStream" id=4]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource( 2 )
@@ -29,6 +31,14 @@ align = 2
 wait_time = 180.0
 one_shot = true
 autostart = true
+
+[node name="timerLowSfx" type="AudioStreamPlayer" parent="RoundTimer"]
+stream = ExtResource( 3 )
+bus = "SFX"
+
+[node name="gameOverSfx" type="AudioStreamPlayer" parent="RoundTimer"]
+stream = ExtResource( 4 )
+bus = "SFX"
 
 [node name="PauseButton" type="Button" parent="."]
 margin_right = 12.0
