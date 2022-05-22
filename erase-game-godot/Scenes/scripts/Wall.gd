@@ -20,8 +20,10 @@ func _input(_event):
 
 	if Input.is_action_just_pressed("ui_left"):
 		wallFrame -= 1
+		$rotateWallSfx.play()
 	if Input.is_action_pressed("ui_right"):
 		wallFrame += 1
+		$rotateWallSfx.play()
 
 	# Call the wall's sprite based on the user's input
 	if !wallDropped:
