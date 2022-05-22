@@ -1,4 +1,4 @@
-extends Node
+extends YSort
 
 # Mass spawn variables
 export var mass_spawn: bool
