@@ -50,12 +50,14 @@ func _input(_event):
 		new_wall.wallDropped = true
 		remove_child(new_wall)
 		currentMeterHP += 1
+		$sandMeterRefil.play()
 
 	# Place wall
 	if Input.is_action_just_pressed("ui_leftclick") and wallSelected:
 		wallSelected = false
 		new_wall.wallDropped = true
 		new_wall.set_position(get_local_mouse_position())
+		$sandMeterRefil.play()
 
 	## Code used for manually adjusting Sand Meter HP
 	if Input.is_action_just_pressed("ui_up"):
