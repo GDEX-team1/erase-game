@@ -48,11 +48,6 @@ jobs:
         name: linux
         path: ./builds/linux/release
 
-    - name: upload html5 build
-      uses: actions/upload-artifact@v2
-      with:
-        name: html5
-        path: ./builds/html5/release
   
   publish_game:
     runs-on: ubuntu-latest
@@ -77,12 +72,6 @@ jobs:
       with:
         name: linux
         path: ./builds/linux/release
-
-    - name: download html5 build
-      uses: actions/download-artifact@v2
-      with:
-        name: html5
-        path: ./builds/html5/release
 
     # Publish exported artifacts to Itch.io
     - name: publish windows build
@@ -111,15 +100,6 @@ jobs:
         ITCH_GAME: ${{ secrets.ITCH_GAME }}
         ITCH_USER: ${{ secrets.ITCH_USERNAME }}
         PACKAGE: ./builds/linux/release
-    
-    - name: publish html5 build
-      uses: josephbmanley/butler-publish-itchio-action@master
-      env:
-        BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
-        CHANNEL: HTML5
-        ITCH_GAME: ${{ secrets.ITCH_GAME }}
-        ITCH_USER: ${{ secrets.ITCH_USERNAME }}
-        PACKAGE: ./builds/html5/release
   
   clean_up:
     runs-on: ubuntu-latest
@@ -133,4 +113,3 @@ jobs:
           windows
           macos
           linux
-          html5
