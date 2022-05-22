@@ -1,116 +1,82 @@
-name: Build & Publish Game
+name: "godot-ci export"
+on: push
 
-on:
-  push:
-    branches: [ release ]
+env:
+  GODOT_VERSION: 3.3.4
+  EXPORT_NAME: test-project
 
 jobs:
-  export_game:
-    runs-on: ubuntu-latest
-    name: Export Game Job
-
+  export-windows:
+    name: Windows Export
+    runs-on: ubuntu-20.04
+    container:
+      image: barichello/godot-ci:3.3.4
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - name: checkout source code
-      uses: actions/checkout@v2.3.2
-      # Ensure that you get the entire project history
-      with:
-        fetch-depth: 0
-    
-    # Export for various different platforms as mentioned in export_presets.cfg
-    - name: export game
-      uses: firebelley/godot-export@v2.4.0
-      with:
-        ACTIONS_ALLOW_UNSECURE_COMMANDS: true
-        godot_executable_download_url: https://downloads.tuxfamily.org/godotengine/3.2.2/Godot_v3.2.2-stable_linux_headless.64.zip
-        godot_export_templates_download_url: https://downloads.tuxfamily.org/godotengine/3.2.2/Godot_v3.2.2-stable_export_templates.tpz
-        relative_project_path: ./erase-game-godot
-        create_release: false
-        use_preset_export_path: true
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  
-    # Upload exported builds to artifacts
-    - name: upload windows build
-      uses: actions/upload-artifact@v2
-      with:
-        name: windows
-        path: ./builds/windows/release
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          lfs: true
+      - name: Setup
+        run: |
+          mkdir -v -p ~/.local/share/godot/templates
+          mv /root/.local/share/godot/templates/${GODOT_VERSION}.stable ~/.local/share/godot/templates/${GODOT_VERSION}.stable
+      - name: Windows Build
+        run: |
+          mkdir -v -p build/windows
+          cd $EXPORT_NAME
+          godot -v --export "Windows Desktop" ../build/windows/$EXPORT_NAME.exe
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: windows
+          path: build/windows
 
-    - name: upload macos build
-      uses: actions/upload-artifact@v2
-      with:
-        name: macos
-        path: ./builds/macos/release
-
-    - name: upload linux build
-      uses: actions/upload-artifact@v2
-      with:
-        name: linux
-        path: ./builds/linux/release
-
-  
-  publish_game:
-    runs-on: ubuntu-latest
-    name: Publish Game To Itch.io
-    needs: [ export_game ]
+  export-linux:
+    name: Linux Export
+    runs-on: ubuntu-20.04
+    container:
+      image: barichello/godot-ci:3.3.4
     steps:
-    # Download all published artefacts
-    - name: download windows build
-      uses: actions/download-artifact@v2
-      with:
-        name: windows
-        path: ./builds/windows/release
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          lfs: true
+      - name: Setup
+        run: |
+          mkdir -v -p ~/.local/share/godot/templates
+          mv /root/.local/share/godot/templates/${GODOT_VERSION}.stable ~/.local/share/godot/templates/${GODOT_VERSION}.stable
+      - name: Linux Build
+        run: |
+          mkdir -v -p build/linux
+          cd $EXPORT_NAME
+          godot -v --export "Linux/X11" ../build/linux/$EXPORT_NAME.x86_64
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: linux
+          path: build/linux
 
-    - name: download macos build
-      uses: actions/download-artifact@v2
-      with:
-        name: macos
-        path: ./builds/macos/release
-
-    - name: download linux build
-      uses: actions/download-artifact@v2
-      with:
-        name: linux
-        path: ./builds/linux/release
-
-    # Publish exported artifacts to Itch.io
-    - name: publish windows build
-      uses: josephbmanley/butler-publish-itchio-action@master
-      env:
-        BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
-        CHANNEL: windows
-        ITCH_GAME: ${{ secrets.ITCH_GAME }}
-        ITCH_USER: ${{ secrets.ITCH_USERNAME }}
-        PACKAGE: ./builds/windows/release
-    
-    - name: publish macos build
-      uses: josephbmanley/butler-publish-itchio-action@master
-      env:
-        BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
-        CHANNEL: osx
-        ITCH_GAME: ${{ secrets.ITCH_GAME }}
-        ITCH_USER: ${{ secrets.ITCH_USERNAME }}
-        PACKAGE: ./builds/macos/release
-    
-    - name: publish linux build
-      uses: josephbmanley/butler-publish-itchio-action@master
-      env:
-        BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
-        CHANNEL: linux
-        ITCH_GAME: ${{ secrets.ITCH_GAME }}
-        ITCH_USER: ${{ secrets.ITCH_USERNAME }}
-        PACKAGE: ./builds/linux/release
-  
-  clean_up:
-    runs-on: ubuntu-latest
-    name: Clean up artifacts
-    needs: [ publish_game ]
+  export-mac:
+    name: Mac Export
+    runs-on: ubuntu-20.04
+    container:
+      image: barichello/godot-ci:3.3.4
     steps:
-    # Delete all artifacts
-    - uses: geekyeggo/delete-artifact@v1
-      with:
-        name: |
-          windows
-          macos
-          linux
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          lfs: true
+      - name: Setup
+        run: |
+          mkdir -v -p ~/.local/share/godot/templates
+          mv /root/.local/share/godot/templates/${GODOT_VERSION}.stable ~/.local/share/godot/templates/${GODOT_VERSION}.stable
+      - name: Mac Build
+        run: |
+          mkdir -v -p build/mac
+          cd $EXPORT_NAME
+          godot -v --export "Mac OSX" ../build/mac/$EXPORT_NAME.zip
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: mac
+          path: build/mac
