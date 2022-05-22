@@ -41,6 +41,7 @@ __meta__ = {
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 1 )
 animation = "glow"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -52,7 +53,6 @@ position = Vector2( 1, 2 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 3 )
 animation = "PickedUpVFX"
-frame = 2
 playing = true
 
 [node name="pickedUpSfx" type="AudioStreamPlayer2D" parent="."]

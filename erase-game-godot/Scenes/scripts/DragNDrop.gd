@@ -20,7 +20,10 @@ func _ready():
 	$SandDollar.connect("SandDollar_PickedUp", self, "pickedUp_SandDollar")
 
 
-func pickedUp_SandDollar():
+
+
+
+func _on_SandDollar_PickedUp():
 	currentMeterHP += HP_Sand_Dollar
 
 
