@@ -12,3 +12,5 @@ script = ExtResource( 2 )
 [node name="menuMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 bus = "Music"
+
+[connection signal="button_pressed" from="main-menu" to="." method="_on_mainmenu_button_pressed"]
