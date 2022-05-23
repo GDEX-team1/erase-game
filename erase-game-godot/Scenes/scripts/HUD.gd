@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-signal start_game
+signal game_over(pointsCrab, pointsLemon, pointsSandDollar, countCrab, countLemon, countSandDollar)
 
 
 export (int) var roundTime = 180.0
@@ -8,6 +8,7 @@ export (int) var countDownTime = 5 #Time for "Time's Nearly Up SFX to start
 export (int) var pointsCrab = 100
 export (int) var pointsLemon = 50
 export (int) var pointsSandDollar = 10
+export(PackedScene) var TimeUp
 
 var score = 0
 var countCrab = 0
@@ -34,10 +35,15 @@ func _ready():
 func _process(delta):
 		
 	$RoundTimer.set_text(str(timeRemaining))
+	
+	var _rsd = SignalBus.connect("SandDollar_PickedUp", self, "_on_SandDollar_PickedUp")
+	var _rl =  SignalBus.connect("Lemon_PickedUp", self, "_on_Lemon_PickedUp")
 	score = countCrab * pointsCrab \
 		+ countLemon * pointsLemon \
 		+ countSandDollar * pointsSandDollar
-			
+		
+		
+	
 	$ScoreLabel.set_text(str(score))
 	
 	if timeRemaining <= countDownTime:
@@ -50,7 +56,8 @@ func _process(delta):
 		
 	# Insert "Game Over" display
 	if timeRemaining < 0 + delta:
-		emit_signal("game_over")
+		SignalBus.emit_signal("game_over", pointsCrab, pointsLemon, pointsSandDollar, countCrab, countLemon, countSandDollar)
+
 		game_over()
 				
 # Game Over function
@@ -60,6 +67,23 @@ func game_over():
 		$RoundTimer/gameOverSfx.play()
 		game_over_has_played = true
 		timeRemaining = 0
+		
+		var rc = get_tree().change_scene("res://Scenes/main/TimeUp.tscn")
+		
+		#var game_over = TimeUp.instance()
+		#add_child(game_over)
+		
+		
+		#game_over.pointsCrab = pointsCrab
+		#game_over.pointsLemon = pointsLemon
+		#game_over.pointsSandDollar = pointsSandDollar
+		#game_over.countCrab = countCrab
+		#game_over.countLemon = countLemon
+		#game_over.countSandDollar = countSandDollar
+		
+		
+		
+		
 	
 
 func _on_globalTimer_timeout():
@@ -89,4 +113,5 @@ func _on_Lemon_PickedUp():
 	countLemon += 1
 	
 func _on_SandDollar_PickedUp():
+	
 	countSandDollar += 1

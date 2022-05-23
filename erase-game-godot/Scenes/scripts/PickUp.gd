@@ -2,8 +2,6 @@ extends Area2D
 
 var pickedUp = false
 
-signal Lemon_PickedUp
-
 var delay = 0
 var max_delay = 1.5  #time (in seconds) needed for VFX to play & pick up hit box to be disabled
 
@@ -25,7 +23,8 @@ func _process(delta):
 
 func _on_Lemon_body_entered(_body):
 	pickedUp = true
-	emit_signal("Lemon_PickedUp")
+	SignalBus.emit_signal("Lemon_PickedUp")
+
 	$pickedUpSfx.play()
 	print("Lemon picked up: ", pickedUp)
 

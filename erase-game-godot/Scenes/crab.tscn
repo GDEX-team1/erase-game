@@ -25,7 +25,7 @@ script = ExtResource( 5 )
 __meta__ = {
 "_edit_group_": true
 }
-speed = 60
+speed = 30
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_left = -36.6667

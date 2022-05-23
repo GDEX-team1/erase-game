@@ -24,10 +24,6 @@ func _ready():
 
 
 
-
-
-
-
 func _on_SandDollar_PickedUp():
 	currentMeterHP += HP_Sand_Dollar
 	print("hp plus")

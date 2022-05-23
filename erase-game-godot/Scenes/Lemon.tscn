@@ -14,10 +14,10 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 1 ), ExtResource( 2 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 1 ) ],
 "loop": true,
 "name": "glow",
-"speed": 2.0
+"speed": 1.0
 } ]
 
 [sub_resource type="CircleShape2D" id=2]
@@ -38,7 +38,7 @@ script = ExtResource( 3 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 1 )
 animation = "glow"
-frame = 1
+frame = 4
 playing = true
 __meta__ = {
 "_edit_group_": true
@@ -53,6 +53,7 @@ position = Vector2( -2, -18 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 3 )
 animation = "PickedUpVFX"
+frame = 4
 playing = true
 
 [node name="pickedUpSfx" type="AudioStreamPlayer" parent="."]
@@ -60,4 +61,3 @@ stream = ExtResource( 10 )
 bus = "SFX"
 
 [connection signal="body_entered" from="." to="." method="_on_Lemon_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_Lemon_body_exited"]

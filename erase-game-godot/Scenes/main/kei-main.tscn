@@ -42,7 +42,7 @@ func _ready():
 script = SubResource( 1 )
 
 [node name="HUD" parent="." instance=ExtResource( 9 )]
-roundTime = 20
+roundTime = 180
 
 [node name="Node2D" parent="." instance=ExtResource( 11 )]
 
@@ -54,38 +54,46 @@ roundTime = 20
 position = Vector2( 846, 373 )
 
 [node name="rock" parent="YSort/Environment" instance=ExtResource( 1 )]
-position = Vector2( 349, 202 )
+position = Vector2( 289, 223 )
 
 [node name="rock3" parent="YSort/Environment" instance=ExtResource( 1 )]
-position = Vector2( 409, 360 )
+position = Vector2( 531, 391 )
 rotation = -0.0925025
 
+[node name="AnimatedSprite" parent="YSort/Environment/rock3" index="0"]
+frame = 1
+
 [node name="rock2" parent="YSort/Environment" instance=ExtResource( 1 )]
-position = Vector2( 541, 162 )
+position = Vector2( 552, 92 )
+
+[node name="AnimatedSprite" parent="YSort/Environment/rock2" index="0"]
+animation = "rock2"
+frame = 2
 
 [node name="rock7" parent="YSort/Environment" instance=ExtResource( 1 )]
-position = Vector2( 471, 142 )
+position = Vector2( 478, 65 )
 
 [node name="rock8" parent="YSort/Environment" instance=ExtResource( 1 )]
-position = Vector2( 762, 74 )
+position = Vector2( 727, 72 )
 
 [node name="rock9" parent="YSort/Environment" instance=ExtResource( 1 )]
-position = Vector2( 817, 405 )
+position = Vector2( 809, 415 )
+rotation = -0.371755
 
 [node name="rock10" parent="YSort/Environment" instance=ExtResource( 1 )]
 position = Vector2( 165, 71 )
 rotation = 0.18675
 
 [node name="rock4" parent="YSort/Environment" instance=ExtResource( 1 )]
-position = Vector2( 317, 483 )
+position = Vector2( 205, 526 )
 
 [node name="rock5" parent="YSort/Environment" instance=ExtResource( 1 )]
-position = Vector2( 85, 390 )
+position = Vector2( 120, 343 )
 rotation = 0.279253
 
 [node name="rock6" parent="YSort/Environment" instance=ExtResource( 1 )]
-position = Vector2( 594, 534 )
-rotation = -0.464258
+position = Vector2( 592, 601 )
+rotation = 0.00174533
 
 [node name="spawnerWave" parent="YSort" instance=ExtResource( 10 )]
 mass_spawn = true
@@ -98,20 +106,21 @@ object = ExtResource( 12 )
 spawn_base = Vector2( 100, 100 )
 spawn_end = 10
 spawn_offset = 1
-spawn_locations = PoolVector2Array( 250, 350, 175, 475, 633, 250, 413, 198, 25, 30, 512, 300, 286, 96, 96, 22, 723, 22, 784, 333 )
+spawn_locations = PoolVector2Array( 250, 350, 175, 475, 633, 250, 413, 198, 25, 30 )
 object = ExtResource( 5 )
 
 [node name="spawnerLemon" parent="YSort" instance=ExtResource( 10 )]
 spawn_base = Vector2( 100, 100 )
 spawn_end = 10
 spawn_offset = 1
+spawn_locations = PoolVector2Array( 250, 350, 480, 125, 500, 200, 600, 250, 550, 315 )
 object = ExtResource( 3 )
 
 [node name="spawnerCrab" parent="YSort" instance=ExtResource( 10 )]
 spawn_base = Vector2( 200, 251 )
 spawn_end = 10
 spawn_offset = 50
-spawn_locations = PoolVector2Array( 65, 332, 475, 275, 336, 502, 134, 351, 25, 30, 176, 417, 862, 69, 97, 222, 23, 396, 184, 233 )
+spawn_locations = PoolVector2Array( 65, 332, 475, 275, 336, 502, 134, 351, 22, 130, 176, 417, 162, 69, 97, 222, 23, 396, 184, 233 )
 object = ExtResource( 2 )
 
 [node name="musicTheme" type="AudioStreamPlayer" parent="."]
@@ -126,9 +135,9 @@ autoplay = true
 
 [node name="SandMeter" parent="." instance=ExtResource( 6 )]
 position = Vector2( 87, 574 )
-HP_Sand_Meter = 2
 
 [connection signal="Crab_entered_bucket" from="YSort/Environment/Bucket" to="HUD" method="_on_Bucket_Crab_entered_bucket"]
 
 [editable path="YSort/Environment/rock"]
 [editable path="YSort/Environment/rock3"]
+[editable path="YSort/Environment/rock2"]

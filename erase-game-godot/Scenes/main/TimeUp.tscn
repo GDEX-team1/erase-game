@@ -1,0 +1,252 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://BigFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Scenes/scripts/TimeUp.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Buttons/buttons.png" type="Texture" id=3]
+
+[node name="TimeUp" type="Node"]
+script = ExtResource( 2 )
+
+[node name="label" type="Node" parent="."]
+
+[node name="timeup" type="Label" parent="label"]
+margin_left = 80.0
+margin_top = 160.0
+margin_right = 280.0
+margin_bottom = 210.0
+custom_colors/font_color = Color( 0.807843, 0.823529, 0.878431, 1 )
+custom_colors/font_outline_modulate = Color( 0.0392157, 0.0156863, 0.0156863, 1 )
+custom_colors/font_color_shadow = Color( 0.0352941, 0.0156863, 0.0156863, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/line_spacing = 0
+custom_fonts/font = ExtResource( 1 )
+text = "Time's Up!!"
+
+[node name="dinner" type="Label" parent="label"]
+margin_left = 72.0
+margin_top = 280.0
+margin_right = 416.0
+margin_bottom = 456.0
+custom_colors/font_color = Color( 0.807843, 0.823529, 0.878431, 1 )
+custom_colors/font_outline_modulate = Color( 0.0392157, 0.0156863, 0.0156863, 1 )
+custom_colors/font_color_shadow = Color( 0.0352941, 0.0156863, 0.0156863, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/line_spacing = 0
+custom_fonts/font = ExtResource( 1 )
+text = "Little Johnny and his family will be having a nice dinner today!! "
+align = 1
+autowrap = true
+
+[node name="total" type="Label" parent="label"]
+margin_left = 596.0
+margin_top = 399.0
+margin_right = 796.0
+margin_bottom = 449.0
+custom_colors/font_color = Color( 0.807843, 0.823529, 0.878431, 1 )
+custom_colors/font_outline_modulate = Color( 0.0392157, 0.0156863, 0.0156863, 1 )
+custom_colors/font_color_shadow = Color( 0.0352941, 0.0156863, 0.0156863, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/line_spacing = 0
+custom_fonts/font = ExtResource( 1 )
+text = "Total Score"
+align = 2
+
+[node name="total_score" type="Label" parent="label"]
+margin_left = 832.0
+margin_top = 400.0
+margin_right = 912.0
+margin_bottom = 450.0
+custom_colors/font_color = Color( 0.807843, 0.823529, 0.878431, 1 )
+custom_colors/font_outline_modulate = Color( 0.0392157, 0.0156863, 0.0156863, 1 )
+custom_colors/font_color_shadow = Color( 0.0352941, 0.0156863, 0.0156863, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/line_spacing = 0
+custom_fonts/font = ExtResource( 1 )
+text = "999"
+align = 2
+
+[node name="score" type="Label" parent="label"]
+margin_left = 840.0
+margin_top = 136.0
+margin_right = 936.0
+margin_bottom = 186.0
+custom_colors/font_color = Color( 0.807843, 0.823529, 0.878431, 1 )
+custom_colors/font_outline_modulate = Color( 0.0392157, 0.0156863, 0.0156863, 1 )
+custom_colors/font_color_shadow = Color( 0.0352941, 0.0156863, 0.0156863, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/line_spacing = 0
+custom_fonts/font = ExtResource( 1 )
+text = "Score"
+align = 2
+
+[node name="count" type="Label" parent="label"]
+margin_left = 712.0
+margin_top = 136.0
+margin_right = 808.0
+margin_bottom = 186.0
+custom_colors/font_color = Color( 0.807843, 0.823529, 0.878431, 1 )
+custom_colors/font_outline_modulate = Color( 0.0392157, 0.0156863, 0.0156863, 1 )
+custom_colors/font_color_shadow = Color( 0.0352941, 0.0156863, 0.0156863, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/line_spacing = 0
+custom_fonts/font = ExtResource( 1 )
+text = "Count"
+align = 2
+
+[node name="playagain" type="Label" parent="label"]
+margin_left = 336.0
+margin_top = 528.0
+margin_right = 536.0
+margin_bottom = 578.0
+custom_colors/font_color = Color( 0.807843, 0.823529, 0.878431, 1 )
+custom_colors/font_outline_modulate = Color( 0.0392157, 0.0156863, 0.0156863, 1 )
+custom_colors/font_color_shadow = Color( 0.0352941, 0.0156863, 0.0156863, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/line_spacing = 0
+custom_fonts/font = ExtResource( 1 )
+text = "Play again"
+
+[node name="Button" type="Button" parent="label"]
+margin_left = 536.0
+margin_top = 504.0
+margin_right = 640.0
+margin_bottom = 600.0
+
+[node name="Buttons" type="Sprite" parent="label/Button"]
+position = Vector2( 56, 48 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+hframes = 4
+vframes = 2
+frame = 1
+
+[node name="Crab" type="Node" parent="."]
+
+[node name="textCrab" type="Label" parent="Crab"]
+margin_left = 592.0
+margin_top = 200.0
+margin_right = 736.0
+margin_bottom = 250.0
+custom_colors/font_color = Color( 0.854902, 0.290196, 0.0980392, 1 )
+custom_colors/font_outline_modulate = Color( 0.0392157, 0.0156863, 0.0156863, 1 )
+custom_colors/font_color_shadow = Color( 0.0352941, 0.0156863, 0.0156863, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/line_spacing = 0
+custom_fonts/font = ExtResource( 1 )
+text = "Crab x "
+align = 2
+
+[node name="countCrab" type="Label" parent="Crab"]
+margin_left = 752.0
+margin_top = 200.0
+margin_right = 800.0
+margin_bottom = 250.0
+custom_colors/font_color = Color( 0.854902, 0.290196, 0.0980392, 1 )
+custom_colors/font_outline_modulate = Color( 0.0392157, 0.0156863, 0.0156863, 1 )
+custom_colors/font_color_shadow = Color( 0.0352941, 0.0156863, 0.0156863, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/line_spacing = 0
+custom_fonts/font = ExtResource( 1 )
+text = "10"
+align = 2
+
+[node name="pointCrab" type="Label" parent="Crab"]
+margin_left = 863.0
+margin_top = 200.0
+margin_right = 911.0
+margin_bottom = 250.0
+custom_colors/font_color = Color( 0.854902, 0.290196, 0.0980392, 1 )
+custom_colors/font_outline_modulate = Color( 0.0392157, 0.0156863, 0.0156863, 1 )
+custom_colors/font_color_shadow = Color( 0.0352941, 0.0156863, 0.0156863, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/line_spacing = 0
+custom_fonts/font = ExtResource( 1 )
+text = "10"
+
+[node name="Lemon" type="Node" parent="."]
+
+[node name="textLemon" type="Label" parent="Lemon"]
+margin_left = 568.0
+margin_top = 264.0
+margin_right = 735.0
+margin_bottom = 314.0
+custom_colors/font_color = Color( 0.905882, 0.803922, 0.345098, 1 )
+custom_colors/font_outline_modulate = Color( 0.0392157, 0.0156863, 0.0156863, 1 )
+custom_colors/font_color_shadow = Color( 0.0352941, 0.0156863, 0.0156863, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/line_spacing = 0
+custom_fonts/font = ExtResource( 1 )
+text = "Lemon    x "
+align = 2
+
+[node name="countLemon" type="Label" parent="Lemon"]
+margin_left = 752.0
+margin_top = 264.0
+margin_right = 800.0
+margin_bottom = 314.0
+custom_colors/font_color = Color( 0.905882, 0.803922, 0.345098, 1 )
+custom_colors/font_outline_modulate = Color( 0.0392157, 0.0156863, 0.0156863, 1 )
+custom_colors/font_color_shadow = Color( 0.0352941, 0.0156863, 0.0156863, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/line_spacing = 0
+custom_fonts/font = ExtResource( 1 )
+text = "10"
+align = 2
+
+[node name="pointLemon" type="Label" parent="Lemon"]
+margin_left = 863.0
+margin_top = 264.0
+margin_right = 911.0
+margin_bottom = 314.0
+custom_colors/font_color = Color( 0.905882, 0.803922, 0.345098, 1 )
+custom_colors/font_outline_modulate = Color( 0.0392157, 0.0156863, 0.0156863, 1 )
+custom_colors/font_color_shadow = Color( 0.0352941, 0.0156863, 0.0156863, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/line_spacing = 0
+custom_fonts/font = ExtResource( 1 )
+text = "10"
+
+[node name="SandDollar" type="Node" parent="."]
+
+[node name="textSandDollar" type="Label" parent="SandDollar"]
+margin_left = 472.0
+margin_top = 328.0
+margin_right = 734.0
+margin_bottom = 378.0
+custom_colors/font_color = Color( 0.870588, 0.615686, 0.529412, 1 )
+custom_colors/font_outline_modulate = Color( 0.0392157, 0.0156863, 0.0156863, 1 )
+custom_colors/font_color_shadow = Color( 0.0352941, 0.0156863, 0.0156863, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/line_spacing = 0
+custom_fonts/font = ExtResource( 1 )
+text = "Sand Dollar    x "
+align = 2
+
+[node name="countSandDollar" type="Label" parent="SandDollar"]
+margin_left = 752.0
+margin_top = 328.0
+margin_right = 800.0
+margin_bottom = 378.0
+custom_colors/font_color = Color( 0.870588, 0.615686, 0.529412, 1 )
+custom_colors/font_outline_modulate = Color( 0.0392157, 0.0156863, 0.0156863, 1 )
+custom_colors/font_color_shadow = Color( 0.0352941, 0.0156863, 0.0156863, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/line_spacing = 0
+custom_fonts/font = ExtResource( 1 )
+text = "10"
+align = 2
+
+[node name="pointSandDollar" type="Label" parent="SandDollar"]
+margin_left = 863.0
+margin_top = 328.0
+margin_right = 911.0
+margin_bottom = 378.0
+custom_colors/font_color = Color( 0.870588, 0.615686, 0.529412, 1 )
+custom_colors/font_outline_modulate = Color( 0.0392157, 0.0156863, 0.0156863, 1 )
+custom_colors/font_color_shadow = Color( 0.0352941, 0.0156863, 0.0156863, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/line_spacing = 0
+custom_fonts/font = ExtResource( 1 )
+text = "10"
+
+[connection signal="pressed" from="label/Button" to="." method="_on_Button_pressed"]
